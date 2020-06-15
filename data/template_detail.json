@@ -1,0 +1,657 @@
+[
+  {
+  "templateId": 1,
+  "tabs": [
+    {
+      "tabName": "模板介绍",
+      "contentType": "string",
+      "description": "此模板用于采集京东关键字搜索采集，用户提供搜索关键字，任务将根据关键字采集相关商品"
+    },
+    {
+      "tabName": "字段预览",
+      "contentType": "tabs",
+      "subTabs": [
+        {
+          "subTabName": "店铺ID",
+          "contentType": "string",
+          "description": "店铺的唯一标识"
+        },
+        {
+          "subTabName": "店铺名称",
+          "contentType": "image",
+          "image": "/image/field?template_id=1&name=shop_name"
+        },
+        {
+          "subTabName": "商品ID",
+          "contentType": "string",
+          "description": "商品编号，商品的唯一标识"
+        },
+        {
+          "subTabName": "商品标题",
+          "contentType": "string",
+          "description": "商品的标题"
+        },
+        {
+          "subTabName": "扩展标题",
+          "contentType": "string",
+          "description": "商品的扩展标题"
+        },
+        {
+          "subTabName": "商品短标题",
+          "contentType": "string",
+          "description": "商品短标题"
+        },
+        {
+          "subTabName": "商品价格",
+          "contentType": "string",
+          "description": "商品的价格信息"
+        },
+        {
+          "subTabName": "品牌Id",
+          "contentType": "string",
+          "description": "商品品牌Id"
+        }
+      ]
+    },
+    {
+      "tabName": "采集参数预览",
+      "contentType": "tabs",
+      "subTabs": [
+        {
+          "subTabName": "关键字",
+          "contentType": "image",
+          "image": "/image/para?template_id=1&name=keyword"
+        },
+        {
+          "subTabName": "参数样例",
+          "contentType": "table",
+          "headers": {
+            "keyword": "关键字"
+          },
+          "data": [
+            {
+              "keyword": "手机"
+            },
+            {
+              "keyword": "平板电脑"
+            },
+            {
+              "keyword": "化妆品"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tabName": "数据样例",
+      "contentType": "table",
+      "headers": {
+        "shop_id": "店铺ID",
+        "shop_name": "店铺名称",
+        "item_id": "商品ID",
+        "ware_name": "商品标题",
+        "ext_name": "扩展标题",
+        "short_ware_name": "商品短标题",
+        "item_price": "商品价格",
+        "brand_id": "品牌Id"
+      },
+      "data": [
+        {
+          "shop_id": "1000004123",
+          "shop_name": "小米京东自营旗舰店",
+          "item_id": "100009082466",
+          "ware_name": "Redmi 8A 5000mAh大电量 大字体大音量大内存 骁龙八核处理器 AI人脸解锁 莱茵护眼全面屏 4GB+64GB 耀夜黑 游戏智能老人手机 小米 红米",
+          "ext_name": "超长续航|震撼大音量|AI人脸解锁",
+          "short_ware_name": "小米（MI） Redmi 8A",
+          "item_price": "699.00",
+          "brand_id": "18374"
+        },
+        {
+          "shop_id": "1000004123",
+          "shop_name": "小米京东自营旗舰店",
+          "item_id": "100007958792",
+          "ware_name": "Redmi Note8Pro 6400万全场景四摄 液冷游戏芯 4500mAh长续航 NFC 18W快充 红外遥控 6GB+128GB 贝母白 游戏智能手机 小米 红米",
+          "ext_name": "6400万四摄|液冷游戏芯|超长续航",
+          "short_ware_name": "小米（MI） Redmi Note8 Pro",
+          "item_price": "1299.00",
+          "brand_id": "18374"
+        },
+        {
+          "shop_id": "1000004123",
+          "shop_name": "小米京东自营旗舰店",
+          "item_id": "100004575493",
+          "ware_name": "Redmi Note8 4800万全场景四摄 4000mAh长续航 高通骁龙665 18W快充 小金刚品质保证 6GB+64GB 曜石黑 游戏智能手机 小米 红米",
+          "ext_name": "4800万四摄|骁龙665|品质小金刚",
+          "short_ware_name": "小米（MI） Redmi Note8",
+          "item_price": "1099.00",
+          "brand_id": "18374"
+        },
+        {
+          "shop_id": "1000001961",
+          "shop_name": "努比亚京东自营旗舰店",
+          "item_id": "100012583904",
+          "ware_name": "努比亚 nubia Play 5G手机 8GB+128GB 5彩斑斓黑 144Hz超竞屏",
+          "ext_name": "144Hz|5G双模|4800万四摄",
+          "short_ware_name": "努比亚（nubia） Play",
+          "item_price": "2699.00",
+          "brand_id": "27094"
+        },
+        {
+          "shop_id": "1000089549",
+          "shop_name": "黑莓手机京东自营官方旗舰店",
+          "item_id": "4595955",
+          "ware_name": "黑莓（BlackBerry）KEYone 4G全网通 4GB+64GB 黑色 移动联通电信手机",
+          "ext_name": "全键盘|超长待机|52个快捷键",
+          "short_ware_name": "黑莓（BlackBerry） KEYone",
+          "item_price": "1899.00",
+          "brand_id": "8214"
+        },
+        {
+          "shop_id": "1000004123",
+          "shop_name": "小米京东自营旗舰店",
+          "item_id": "100007090657",
+          "ware_name": "Redmi K30极速版 5G双模 120Hz流速屏 骁龙768G 6400万后置四摄 6GB+128GB 深海微光 游戏智能手机 小米 红米",
+          "ext_name": "双模5G|骁龙768G|液冷散热",
+          "short_ware_name": "小米（MI） Redmi K30 极速版",
+          "item_price": "1999.00",
+          "brand_id": "18374"
+        },
+        {
+          "shop_id": "1000004259",
+          "shop_name": "华为京东自营官方旗舰店",
+          "item_id": "100000986010",
+          "ware_name": "华为 HUAWEI Mate 20 Pro (UD)屏内指纹版麒麟980芯片全面屏超大广角徕卡三摄8GB+128GB极光色全网通双4G手机",
+          "ext_name": "徕卡三摄|曲面屏|超级快充",
+          "short_ware_name": "华为（HUAWEI） Mate 20 Pro",
+          "item_price": "3499.00",
+          "brand_id": "8557"
+        },
+        {
+          "shop_id": "1000004123",
+          "shop_name": "小米京东自营旗舰店",
+          "item_id": "100011336064",
+          "ware_name": "【向往的生活同款】小米10 双模5G  骁龙865 1亿像素8K电影相机  对称式立体声 8GB+128GB 钛银黑 拍照智能游戏手机",
+          "ext_name": "1亿像素|骁龙865|对称立体声",
+          "short_ware_name": "小米（MI） 10",
+          "item_price": "3999.00",
+          "brand_id": "18374"
+        },
+        {
+          "shop_id": "1000001952",
+          "shop_name": "魅族京东自营旗舰店",
+          "item_id": "100012881836",
+          "ware_name": "魅族17 Pro 8GB+128GB 乌金 骁龙865 旗舰5G手机 27W无线充 6400W后置主摄 90Hz屏幕 支持NFC 拍照游戏手机",
+          "ext_name": "后置四摄|超广角|支持NFC",
+          "short_ware_name": "魅族（MEIZU） 17 Pro",
+          "item_price": "4299.00",
+          "brand_id": "12669"
+        },
+        {
+          "shop_id": "1000004259",
+          "shop_name": "华为京东自营官方旗舰店",
+          "item_id": "100003599639",
+          "ware_name": "华为 HUAWEI 麦芒 8 超广角AI三摄 高清珍珠屏 大存储  6GB+128GB 幻夜黑 全网通双4G手机",
+          "ext_name": "超广角AI三摄丨珍珠屏丨大储存",
+          "short_ware_name": "华为（HUAWEI） 麦芒 8",
+          "item_price": "1269.00",
+          "brand_id": "8557"
+        }
+      ]
+    }
+  ]
+},
+  {
+  "templateId": 2,
+  "tabs": [
+    {
+      "tabName": "模板介绍",
+      "contentType": "string",
+      "description": "此模板用于根据关键字获取高德POI信息，例如；输入\"地铁站\"，获取的为地铁站的POI信息"
+    },
+    {
+      "tabName": "字段预览",
+      "contentType": "tabs",
+      "subTabs": [
+        {
+          "subTabName": "ID",
+          "contentType": "string",
+          "description": "POI的唯一标识"
+        },
+        {
+          "subTabName": "名称",
+          "contentType": "string",
+          "description": "POI的名称"
+        },
+        {
+          "subTabName": "类型",
+          "contentType": "string",
+          "description": "地理位置的类型"
+        },
+        {
+          "subTabName": "地址",
+          "contentType": "string",
+          "description": "POI对应的地址"
+        },
+        {
+          "subTabName": "坐标",
+          "contentType": "string",
+          "description": "POI对应的坐标"
+        },
+        {
+          "subTabName": "坐标",
+          "contentType": "string",
+          "description": "POI对应的电话号码"
+        },
+        {
+          "subTabName": "省份",
+          "contentType": "string",
+          "description": "POI所在省份"
+        },
+        {
+          "subTabName": "城市",
+          "contentType": "string",
+          "description": "POI所在城市"
+        },
+        {
+          "subTabName": "区域",
+          "contentType": "string",
+          "description": "POI所在区域，一般是行政区、县等"
+        },
+        {
+          "subTabName": "页码",
+          "contentType": "string",
+          "description": "信息页码"
+        }
+      ]
+    },
+    {
+      "tabName": "采集参数预览",
+      "contentType": "tabs",
+      "subTabs": [
+        {
+          "subTabName": "关键字",
+          "contentType": "string",
+          "description": "POI搜素关键字"
+        },
+        {
+          "subTabName": "参数样例",
+          "contentType": "table",
+          "headers": {
+            "keyword": "关键字"
+          },
+          "data": [
+            {
+              "keyword": "公交站"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tabName": "数据样例",
+      "contentType": "table",
+      "headers": {
+        "id": "ID",
+        "name": "名称",
+        "type": "类型",
+        "address": "地址",
+        "location": "坐标",
+        "tel": "坐标",
+        "pname": "省份",
+        "cityname": "城市",
+        "adname": "区域",
+        "page": "页码"
+      },
+      "data": [
+        {
+          "id": "B001D004DC",
+          "name": "西安市临潼区中医医院",
+          "type": "医疗保健服务;综合医院;综合医院",
+          "address": "南大街46号",
+          "location": "109.212741,34.367532",
+          "tel": "029-83812135",
+          "pname": "陕西省",
+          "cityname": "西安市",
+          "adname": "临潼区",
+          "page": 29
+        },
+        {
+          "id": "B001D006B8",
+          "name": "临潼区西泉社区卫生服务中心",
+          "type": "医疗保健服务;综合医院;卫生院",
+          "address": "西泉乡",
+          "location": "109.144145,34.405164",
+          "tel": "029-83959057",
+          "pname": "陕西省",
+          "cityname": "西安市",
+          "adname": "临潼区",
+          "page": 32
+        },
+        {
+          "id": "B001D00C1A",
+          "name": "西安市第五医院",
+          "type": "医疗保健服务;综合医院;三级甲等医院",
+          "address": "西关正街112号",
+          "location": "108.917836,34.258602",
+          "tel": "029-84696366;029-84696356",
+          "pname": "陕西省",
+          "cityname": "西安市",
+          "adname": "莲湖区",
+          "page": 2
+        },
+        {
+          "id": "B001D00E2F",
+          "name": "西仪集团医院",
+          "type": "医疗保健服务;综合医院;综合医院",
+          "address": "西仪坊25号",
+          "location": "108.912957,34.266119",
+          "tel": "029-88646120",
+          "pname": "陕西省",
+          "cityname": "西安市",
+          "adname": "莲湖区",
+          "page": 7
+        },
+        {
+          "id": "B001D00E3F",
+          "name": "西安市第一医院",
+          "type": "医疗保健服务;综合医院;三级甲等医院",
+          "address": "粉巷30",
+          "location": "108.944938,34.254527",
+          "tel": "029-87630888;029-87630799",
+          "pname": "陕西省",
+          "cityname": "西安市",
+          "adname": "碑林区",
+          "page": 1
+        },
+        {
+          "id": "B001D00E75",
+          "name": "陕西省中医医院",
+          "type": "医疗保健服务;综合医院;三级甲等医院",
+          "address": "西华门大街2-4号",
+          "location": "108.945194,34.263876",
+          "tel": "029-87213310;029-87259245;029-87252631",
+          "pname": "陕西省",
+          "cityname": "西安市",
+          "adname": "莲湖区",
+          "page": 1
+        },
+        {
+          "id": "B001D01298",
+          "name": "陕西地矿医院",
+          "type": "医疗保健服务;综合医院;综合医院",
+          "address": "自强西路81号",
+          "location": "108.942984,34.28061",
+          "tel": "029-86229792",
+          "pname": "陕西省",
+          "cityname": "西安市",
+          "adname": "莲湖区",
+          "page": 1
+        },
+        {
+          "id": "B001D017E5",
+          "name": "长安医院",
+          "type": "医疗保健服务;综合医院;三级甲等医院",
+          "address": "文景路17号",
+          "location": "108.939822,34.321233",
+          "tel": "029-83668888",
+          "pname": "陕西省",
+          "cityname": "西安市",
+          "adname": "未央区",
+          "page": 6
+        },
+        {
+          "id": "B001D01C19",
+          "name": "西安交通大学口腔医学院",
+          "type": "医疗保健服务;专科医院;口腔医院",
+          "address": "西五路98号(北大街什字东南角)",
+          "location": "108.949576,34.268852",
+          "tel": "029-87273400;029-87275706",
+          "pname": "陕西省",
+          "cityname": "西安市",
+          "adname": "新城区",
+          "page": 1
+        },
+        {
+          "id": "B001D01D3A",
+          "name": "西安三秦医院",
+          "type": "医疗保健服务;综合医院;综合医院",
+          "address": "西五路1号",
+          "location": "108.96208,34.27053",
+          "tel": "029-87416688;029-87415555",
+          "pname": "陕西省",
+          "cityname": "西安市",
+          "adname": "新城区",
+          "page": 1
+        }
+      ]
+    }
+  ]
+},
+  {
+    "templateId": 4,
+    "tabs": [
+      {
+        "tabName": "模板介绍",
+        "contentType": "string",
+        "description": "此模板用于根据关键字获取高德POI信息，例如；输入\"地铁站\"，获取的为地铁站的POI信息"
+      },
+      {
+        "tabName": "字段预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "ID",
+            "contentType": "string",
+            "description": "POI的唯一标识"
+          },
+          {
+            "subTabName": "名称",
+            "contentType": "string",
+            "description": "POI的名称"
+          },
+          {
+            "subTabName": "类型",
+            "contentType": "string",
+            "description": "地理位置的类型"
+          },
+          {
+            "subTabName": "地址",
+            "contentType": "string",
+            "description": "POI对应的地址"
+          },
+          {
+            "subTabName": "坐标",
+            "contentType": "string",
+            "description": "POI对应的坐标"
+          },
+          {
+            "subTabName": "坐标",
+            "contentType": "string",
+            "description": "POI对应的电话号码"
+          },
+          {
+            "subTabName": "省份",
+            "contentType": "string",
+            "description": "POI所在省份"
+          },
+          {
+            "subTabName": "城市",
+            "contentType": "string",
+            "description": "POI所在城市"
+          },
+          {
+            "subTabName": "区域",
+            "contentType": "string",
+            "description": "POI所在区域，一般是行政区、县等"
+          },
+          {
+            "subTabName": "页码",
+            "contentType": "string",
+            "description": "信息页码"
+          }
+        ]
+      },
+      {
+        "tabName": "采集参数预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "关键字",
+            "contentType": "string",
+            "description": "POI搜素关键字"
+          },
+          {
+            "subTabName": "参数样例",
+            "contentType": "table",
+            "headers": {
+              "keyword": "关键字"
+            },
+            "data": [
+              {
+                "keyword": "公交站"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tabName": "数据样例",
+        "contentType": "table",
+        "headers": {
+          "id": "ID",
+          "name": "名称",
+          "type": "类型",
+          "address": "地址",
+          "location": "坐标",
+          "tel": "坐标",
+          "pname": "省份",
+          "cityname": "城市",
+          "adname": "区域",
+          "page": "页码"
+        },
+        "data": [
+          {
+            "id": "B001D004DC",
+            "name": "西安市临潼区中医医院",
+            "type": "医疗保健服务;综合医院;综合医院",
+            "address": "南大街46号",
+            "location": "109.212741,34.367532",
+            "tel": "029-83812135",
+            "pname": "陕西省",
+            "cityname": "西安市",
+            "adname": "临潼区",
+            "page": 29
+          },
+          {
+            "id": "B001D006B8",
+            "name": "临潼区西泉社区卫生服务中心",
+            "type": "医疗保健服务;综合医院;卫生院",
+            "address": "西泉乡",
+            "location": "109.144145,34.405164",
+            "tel": "029-83959057",
+            "pname": "陕西省",
+            "cityname": "西安市",
+            "adname": "临潼区",
+            "page": 32
+          },
+          {
+            "id": "B001D00C1A",
+            "name": "西安市第五医院",
+            "type": "医疗保健服务;综合医院;三级甲等医院",
+            "address": "西关正街112号",
+            "location": "108.917836,34.258602",
+            "tel": "029-84696366;029-84696356",
+            "pname": "陕西省",
+            "cityname": "西安市",
+            "adname": "莲湖区",
+            "page": 2
+          },
+          {
+            "id": "B001D00E2F",
+            "name": "西仪集团医院",
+            "type": "医疗保健服务;综合医院;综合医院",
+            "address": "西仪坊25号",
+            "location": "108.912957,34.266119",
+            "tel": "029-88646120",
+            "pname": "陕西省",
+            "cityname": "西安市",
+            "adname": "莲湖区",
+            "page": 7
+          },
+          {
+            "id": "B001D00E3F",
+            "name": "西安市第一医院",
+            "type": "医疗保健服务;综合医院;三级甲等医院",
+            "address": "粉巷30",
+            "location": "108.944938,34.254527",
+            "tel": "029-87630888;029-87630799",
+            "pname": "陕西省",
+            "cityname": "西安市",
+            "adname": "碑林区",
+            "page": 1
+          },
+          {
+            "id": "B001D00E75",
+            "name": "陕西省中医医院",
+            "type": "医疗保健服务;综合医院;三级甲等医院",
+            "address": "西华门大街2-4号",
+            "location": "108.945194,34.263876",
+            "tel": "029-87213310;029-87259245;029-87252631",
+            "pname": "陕西省",
+            "cityname": "西安市",
+            "adname": "莲湖区",
+            "page": 1
+          },
+          {
+            "id": "B001D01298",
+            "name": "陕西地矿医院",
+            "type": "医疗保健服务;综合医院;综合医院",
+            "address": "自强西路81号",
+            "location": "108.942984,34.28061",
+            "tel": "029-86229792",
+            "pname": "陕西省",
+            "cityname": "西安市",
+            "adname": "莲湖区",
+            "page": 1
+          },
+          {
+            "id": "B001D017E5",
+            "name": "长安医院",
+            "type": "医疗保健服务;综合医院;三级甲等医院",
+            "address": "文景路17号",
+            "location": "108.939822,34.321233",
+            "tel": "029-83668888",
+            "pname": "陕西省",
+            "cityname": "西安市",
+            "adname": "未央区",
+            "page": 6
+          },
+          {
+            "id": "B001D01C19",
+            "name": "西安交通大学口腔医学院",
+            "type": "医疗保健服务;专科医院;口腔医院",
+            "address": "西五路98号(北大街什字东南角)",
+            "location": "108.949576,34.268852",
+            "tel": "029-87273400;029-87275706",
+            "pname": "陕西省",
+            "cityname": "西安市",
+            "adname": "新城区",
+            "page": 1
+          },
+          {
+            "id": "B001D01D3A",
+            "name": "西安三秦医院",
+            "type": "医疗保健服务;综合医院;综合医院",
+            "address": "西五路1号",
+            "location": "108.96208,34.27053",
+            "tel": "029-87416688;029-87415555",
+            "pname": "陕西省",
+            "cityname": "西安市",
+            "adname": "新城区",
+            "page": 1
+          }
+        ]
+      }
+    ]
+  }
+]

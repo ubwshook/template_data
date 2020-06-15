@@ -1,0 +1,50 @@
+[
+  {
+    "templateId": 1,
+    "templateName": "京东关键字搜索",
+    "templateEnName": "jd_keyword",
+    "websiteId": 1,
+    "websiteName": "京东商城",
+    "categoryId": 3,
+    "categoryName": "电商平台",
+    "isNeedParas": true,
+    "src": "arachnid/template/jd/",
+    "cmd": "python jd_keyword.py --para=%s"
+  },
+  {
+    "templateId": 2,
+    "templateName": "高德地图关键词搜索POI",
+    "templateEnName": "amap_keyword",
+    "websiteId": 4,
+    "websiteName": "高德地图",
+    "categoryId": 9,
+    "categoryName": "实用工具",
+    "isNeedParas": true,
+    "src": "arachnid/template/a-map/",
+    "cmd": "python a_map_poi.py --para=%s"
+  },
+  {
+    "templateId": 3,
+    "templateName": "京东商品热卖榜",
+    "templateEnName": "jd_hot_item",
+    "websiteId": 1,
+    "websiteName": "京东商城",
+    "categoryId": 3,
+    "categoryName": "电商平台",
+    "isNeedParas": false,
+    "src": "",
+    "cmd": ""
+  },
+  {
+    "templateId": 4,
+    "templateName": "高德地图关键词搜索POI(Go语言版)",
+    "templateEnName": "amap_keyword_go",
+    "websiteId": 4,
+    "websiteName": "高德地图",
+    "categoryId": 9,
+    "categoryName": "实用工具",
+    "isNeedParas": true,
+    "src": "arachnid/go/a_map/",
+    "cmd": "./a_map -paras=%s"
+  }
+]

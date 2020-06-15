@@ -1,0 +1,236 @@
+[
+  {
+    "websiteId": 1,
+    "name": "京东商城",
+    "description": "京东JD.COM-专业的综合网上购物商城",
+    "isHot": true,
+    "CategoryId": 3,
+    "logoUrl": "/image/website_logo?website_id=1",
+    "WebsiteUrl": "/templates?website_id=1"
+  },
+  {
+    "websiteId": 2,
+    "name": "百度搜索",
+    "description": "百度搜索",
+    "isHot": true,
+    "CategoryId": 6,
+    "logoUrl": "/image/website_logo?website_id=2",
+    "WebsiteUrl": "/templates?website_id=2"
+  },
+  {
+    "websiteId": 3,
+    "name": "今日头条",
+    "description": "今日头条是北京字节跳动科技有限公司开发的一款基于数据挖掘的推荐引擎产品，为用户推荐信息、提供连接人与信息的服务的产品。",
+    "isHot": true,
+    "CategoryId": 1,
+    "logoUrl": "/image/website_logo?website_id=3",
+    "WebsiteUrl": "/templates?website_id=3"
+  },
+  {
+    "websiteId": 4,
+    "name": "高德地图",
+    "description": "高德是中国领先的数字地图内容、导航和位置服务解决方案提供商。",
+    "isHot": true,
+    "CategoryId": 9,
+    "logoUrl": "/image/website_logo?website_id=4",
+    "WebsiteUrl": "/templates?website_id=4"
+  },
+  {
+    "websiteId": 5,
+    "name": "链家",
+    "description": "链家是一家集房产交易服务、资产管理服务为一体以数据驱动的价值链房产服务平台，业务覆盖二手房交易、新房交易、租赁、装修服务等。",
+    "isHot": true,
+    "CategoryId": 4,
+    "logoUrl": "/image/website_logo?website_id=5",
+    "WebsiteUrl": "/templates?website_id=5"
+  },
+  {
+    "websiteId": 6,
+    "name": "豆瓣",
+    "description": "豆瓣（douban）是一个社区网站。该网站以书影音起家，提供关于书籍、电影、音乐等作品的信息，无论描述还是评论都由用户提供",
+    "isHot": true,
+    "CategoryId": 5,
+    "logoUrl": "/image/website_logo?website_id=6",
+    "WebsiteUrl": "/templates?website_id=6"
+  },
+  {
+    "websiteId": 7,
+    "name": "知乎",
+    "description": "知乎是网络问答社区，连接各行各业的用户。用户分享着彼此的知识、经验和见解，为中文互联网源源不断地提供多种多样的信息。",
+    "isHot": true,
+    "CategoryId": 5,
+    "logoUrl": "/image/website_logo?website_id=7",
+    "WebsiteUrl": "/templates?website_id=7"
+  },
+  {
+    "websiteId": 8,
+    "name": "快递100",
+    "description": "快递100是中国领先的快递物流信息服务商，国家高新技术企业、新基建代表企业。",
+    "isHot": true,
+    "CategoryId": 8,
+    "logoUrl": "/image/website_logo?website_id=8",
+    "WebsiteUrl": "/templates?website_id=8"
+  },
+  {
+    "websiteId": 9,
+    "name": "西电官网",
+    "description": "西安电子科技大学（Xidian University）简称“西电”或“西军电”，直属于中华人民共和国教育部，是1959年中央确定的首批20所全国重点大学",
+    "isHot": true,
+    "CategoryId": 11,
+    "logoUrl": "/image/website_logo?website_id=9",
+    "WebsiteUrl": "/templates?website_id=9"
+  },
+  {
+    "websiteId": 9,
+    "name": "西电官网",
+    "description": "西安电子科技大学（Xidian University）简称“西电”或“西军电”，直属于中华人民共和国教育部，是1959年中央确定的首批20所全国重点大学",
+    "isHot": true,
+    "CategoryId": 11,
+    "logoUrl": "/image/website_logo?website_id=9",
+    "WebsiteUrl": "/templates?website_id=9"
+  },
+  {
+    "websiteId": 10,
+    "name": "汽车之家",
+    "description": "汽车之家成立于2005年6月，是全球访问量最大的汽车网站。",
+    "isHot": true,
+    "CategoryId": 4,
+    "logoUrl": "/image/website_logo?website_id=10",
+    "WebsiteUrl": "/templates?website_id=10"
+  },
+  {
+    "websiteId": 11,
+    "name": "爱奇艺",
+    "description": "爱奇艺，中国高品质视频娱乐服务提供者。",
+    "isHot": true,
+    "CategoryId": 9,
+    "logoUrl": "/image/website_logo?website_id=11",
+    "WebsiteUrl": "/templates?website_id=11"
+  },
+  {
+    "websiteId": 12,
+    "name": "考拉海购",
+    "description": "考拉海购是阿里旗下以跨境业务为主的综合型电商",
+    "isHot": true,
+    "CategoryId": 3,
+    "logoUrl": "/image/website_logo?website_id=12",
+    "WebsiteUrl": "/templates?website_id=12"
+  },
+  {
+    "websiteId": 16,
+    "name": "京东商城16",
+    "description": "京东JD.COM-专业的综合网上购物商城",
+    "isHot": true,
+    "CategoryId": 3,
+    "logoUrl": "/image/website_logo?website_id=1",
+    "WebsiteUrl": "/templates?website_id=1"
+  },
+  {
+    "websiteId": 17,
+    "name": "京东商城17",
+    "description": "京东JD.COM-专业的综合网上购物商城",
+    "isHot": true,
+    "CategoryId": 3,
+    "logoUrl": "/image/website_logo?website_id=1",
+    "WebsiteUrl": "/templates?website_id=1"
+  },
+  {
+    "websiteId": 18,
+    "name": "京东商城18",
+    "description": "京东JD.COM-专业的综合网上购物商城",
+    "isHot": true,
+    "CategoryId": 3,
+    "logoUrl": "/image/website_logo?website_id=1",
+    "WebsiteUrl": "/templates?website_id=1"
+  },
+  {
+    "websiteId": 20,
+    "name": "京东商城20",
+    "description": "京东JD.COM-专业的综合网上购物商城",
+    "isHot": true,
+    "CategoryId": 3,
+    "logoUrl": "/image/website_logo?website_id=1",
+    "WebsiteUrl": "/templates?website_id=1"
+  },
+  {
+    "websiteId": 21,
+    "name": "京东商城21",
+    "description": "京东JD.COM-专业的综合网上购物商城",
+    "isHot": true,
+    "CategoryId": 3,
+    "logoUrl": "/image/website_logo?website_id=1",
+    "WebsiteUrl": "/templates?website_id=1"
+  },
+  {
+    "websiteId": 22,
+    "name": "京东商城22",
+    "description": "京东JD.COM-专业的综合网上购物商城",
+    "isHot": true,
+    "CategoryId": 3,
+    "logoUrl": "/image/website_logo?website_id=1",
+    "WebsiteUrl": "/templates?website_id=1"
+  },
+  {
+    "websiteId": 23,
+    "name": "京东商城23",
+    "description": "京东JD.COM-专业的综合网上购物商城",
+    "isHot": true,
+    "CategoryId": 3,
+    "logoUrl": "/image/website_logo?website_id=1",
+    "WebsiteUrl": "/templates?website_id=1"
+  },
+  {
+    "websiteId": 24,
+    "name": "京东商城24",
+    "description": "京东JD.COM-专业的综合网上购物商城",
+    "isHot": true,
+    "CategoryId": 3,
+    "logoUrl": "/image/website_logo?website_id=1",
+    "WebsiteUrl": "/templates?website_id=1"
+  },
+  {
+    "websiteId": 25,
+    "name": "京东商城25",
+    "description": "京东JD.COM-专业的综合网上购物商城",
+    "isHot": true,
+    "CategoryId": 3,
+    "logoUrl": "/image/website_logo?website_id=1",
+    "WebsiteUrl": "/templates?website_id=1"
+  },
+  {
+    "websiteId": 26,
+    "name": "京东商城26",
+    "description": "京东JD.COM-专业的综合网上购物商城",
+    "isHot": true,
+    "CategoryId": 3,
+    "logoUrl": "/image/website_logo?website_id=1",
+    "WebsiteUrl": "/templates?website_id=1"
+  },
+  {
+    "websiteId": 27,
+    "name": "京东商城27",
+    "description": "京东JD.COM-专业的综合网上购物商城",
+    "isHot": true,
+    "CategoryId": 3,
+    "logoUrl": "/image/website_logo?website_id=1",
+    "WebsiteUrl": "/templates?website_id=1"
+  },
+  {
+    "websiteId": 28,
+    "name": "京东商城28",
+    "description": "京东JD.COM-专业的综合网上购物商城",
+    "isHot": true,
+    "CategoryId": 3,
+    "logoUrl": "/image/website_logo?website_id=1",
+    "WebsiteUrl": "/templates?website_id=1"
+  },
+  {
+    "websiteId": 29,
+    "name": "京东商城29",
+    "description": "京东JD.COM-专业的综合网上购物商城",
+    "isHot": true,
+    "CategoryId": 3,
+    "logoUrl": "/image/website_logo?website_id=1",
+    "WebsiteUrl": "/templates?website_id=1"
+  }
+]

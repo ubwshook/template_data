@@ -1,0 +1,62 @@
+[
+  {
+    "categoryId": 1,
+    "name": "新闻门户",
+    "cateUrl": "/category?category_id=1"
+  },
+  {
+    "categoryId": 2,
+    "name": "行业资讯",
+    "cateUrl": "/category?category_id=2"
+  },
+  {
+    "categoryId": 3,
+    "name": "电商平台",
+    "cateUrl": "/category?category_id=3"
+  },
+  {
+    "categoryId": 4,
+    "name": "分类信息",
+    "cateUrl": "/category?category_id=4"
+  },
+  {
+    "categoryId": 5,
+    "name": "社区论坛",
+    "cateUrl": "/category?category_id=5"
+  },
+  {
+    "categoryId": 6,
+    "name": "搜索引擎",
+    "cateUrl": "/category?category_id=6"
+  },
+  {
+    "categoryId": 7,
+    "name": "政府发布",
+    "cateUrl": "/category?category_id=7"
+  },
+  {
+    "categoryId": 8,
+    "name": "影音娱乐",
+    "cateUrl": "/category?category_id=8"
+  },
+  {
+    "categoryId": 9,
+    "name": "实用工具",
+    "cateUrl": "/category?category_id=9"
+  },
+  {
+    "categoryId": 10,
+    "name": "生活百科",
+    "cateUrl": "/category?category_id=10"
+  },
+  {
+    "categoryId": 11,
+    "name": "科研教育",
+    "cateUrl": "/category?category_id=11"
+  },
+  {
+    "categoryId": 12,
+    "name": "其他",
+    "cateUrl": "/category?category_id=2"
+  }
+]
