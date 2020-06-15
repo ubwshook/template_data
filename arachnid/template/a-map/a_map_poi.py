@@ -50,9 +50,16 @@ class AMapPoi(object):
         self.db = db
 
     def get_parameter(self):
+        # 指定参数表
+        # self.db = db
+        # self.para_col = "parameters"
         col = self.db.get_collection(self.para_col)
+
+        # 根据传入的参数表id获取参数
+        # self.para_id = parameter_id (传入的参数)
         parameter = col.find_one({"_id": ObjectId(self.para_id)})
 
+        # 解析参数（根据插入的格式）
         self.keyword_list = parameter["parameterMap"][parameter["headersList"][0]]
 
     def make_url_info(self, keyword):
@@ -147,11 +154,14 @@ class AMapPoi(object):
 
 
 if __name__ == "__main__":
+    # 定义参数格式
     parser = argparse.ArgumentParser(description='Transmit spider parameter')
     parser.add_argument('--para', required=True, help='The parameter col id for the spider.')
 
+    # 解析并获取参数
     args = parser.parse_args()
     parameter_id = args.para
 
+    # 将参数传递给爬虫
     spider = AMapPoi(parameter_id)
     spider.start()
