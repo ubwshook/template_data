@@ -653,5 +653,327 @@
         ]
       }
     ]
+  },
+  {
+    "templateId": 5,
+    "tabs": [
+      {
+        "tabName": "模板介绍",
+        "contentType": "string",
+        "description": "此模板用于采集汽车之家-汽车报价数据"
+      },
+      {
+        "tabName": "字段预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "品牌id",
+            "contentType": "string",
+            "description": "汽车品牌id"
+          },
+          {
+            "subTabName": "品牌名",
+            "contentType": "string",
+            "description": "汽车品牌名称"
+          },
+          {
+            "subTabName": "品牌分类",
+            "contentType": "string",
+            "description": "汽车品牌类别"
+          },
+          {
+            "subTabName": "品牌系列",
+            "contentType": "string",
+            "description": "汽车品牌系列"
+          },
+          {
+            "subTabName": "排量",
+            "contentType": "string",
+            "description": "汽车发动机排量"
+          },
+          {
+            "subTabName": "款式",
+            "contentType": "string",
+            "description": "汽车款式"
+          },
+          {
+            "subTabName": "关注度",
+            "contentType": "string",
+            "description": "本款汽车关注度"
+          },
+          {
+            "subTabName": "指导价",
+            "contentType": "string",
+            "description": "本款汽车指导价格"
+          },
+          {
+            "subTabName": "最低报价",
+            "contentType": "string",
+            "description": "本款汽车最低报价"
+          }
+        ]
+      },
+      {
+        "tabName": "采集参数预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "",
+            "contentType": "string",
+            "description": ""
+          },
+          {
+            "subTabName": "",
+            "contentType": "table",
+            "headers": {
+              "keyword": ""
+            },
+            "data": [
+              {
+                "keyword": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tabName": "数据样例",
+        "contentType": "table",
+        "headers": {
+          "id_num": "品牌id",
+          "brand": "品牌名",
+          "min_brand": "品牌分类",
+          "car_brand": "品牌系列",
+          "engine_capacity": "排量",
+          "car_name": "款式",
+          "car_attention": "关注度",
+          "car_guideprice": "指导价",
+          "car_dealerprice": "最低报价"
+        },
+        "data": [
+          {
+            "id_num": "1",
+            "brand": "奥迪",
+            "min_brand": "一汽-大众奥迪",
+            "car_brand": "奥迪A3",
+            "engine_capacity": "1.4升 涡轮增压 150马力",
+            "car_name": "2020款 改款 Sportback 35 TFSI 进取型 国VI 前置前驱7挡双离合",
+            "car_attention": "60%",
+            "car_guideprice": "19.32万",
+            "car_dealerprice": "13.62万起"
+          },
+          {
+            "id_num": "1",
+            "brand": "奥迪",
+            "min_brand": "一汽-大众奥迪",
+            "car_brand": "奥迪A3",
+            "engine_capacity": "1.4升 涡轮增压 150马力",
+            "car_name": "2020款 Sportback 35 TFSI 时尚型 国VI 前置前驱7挡双离合",
+            "car_attention": "100%",
+            "car_guideprice": "21.37万",
+            "car_dealerprice": "15.07万起"
+          },
+          {
+            "id_num": "1",
+            "brand": "奥迪",
+            "min_brand": "一汽-大众奥迪",
+            "car_brand": "奥迪A3",
+            "engine_capacity": "1.4升 涡轮增压 150马力",
+            "car_name": "2020款 Sportback 35 TFSI 风尚型 国VI 前置前驱7挡双离合",
+            "car_attention": "20%",
+            "car_guideprice": "22.86万",
+            "car_dealerprice": "16.13万起"
+          },
+          {
+            "id_num": "1",
+            "brand": "奥迪",
+            "min_brand": "一汽-大众奥迪",
+            "car_brand": "奥迪A3",
+            "engine_capacity": "1.4升 涡轮增压 150马力",
+            "car_name": "2020款 Sportback 35 TFSI 运动型 国VI 前置前驱7挡双离合",
+            "car_attention": "20%",
+            "car_guideprice": "22.86万",
+            "car_dealerprice": "16.13万起"
+          },
+          {
+            "id_num": "1",
+            "brand": "奥迪",
+            "min_brand": "一汽-大众奥迪",
+            "car_brand": "奥迪A3",
+            "engine_capacity": "1.4升 涡轮增压 150马力",
+            "car_name": "2020款 改款 Limousine 35 TFSI 进取型 国VI 前置前驱7挡双离合",
+            "car_attention": "20%",
+            "car_guideprice": "19.92万",
+            "car_dealerprice": "14.04万起"
+          },
+          {
+            "id_num": "1",
+            "brand": "奥迪",
+            "min_brand": "一汽-大众奥迪",
+            "car_brand": "奥迪A3",
+            "engine_capacity": "1.4升 涡轮增压 150马力",
+            "car_name": "2020款 Limousine 35 TFSI 时尚型 国VI 前置前驱7挡双离合",
+            "car_attention": "80%",
+            "car_guideprice": "21.97万",
+            "car_dealerprice": "14.68万起"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "templateId": 6,
+    "tabs": [
+      {
+        "tabName": "模板介绍",
+        "contentType": "string",
+        "description": "此模板用于采集新浪微博-微博热门话题数据"
+      },
+      {
+        "tabName": "字段预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "排行",
+            "contentType": "string",
+            "description": "话题排行"
+          },
+          {
+            "subTabName": "标题",
+            "contentType": "string",
+            "description": "话题标题"
+          },
+          {
+            "subTabName": "话题标签",
+            "contentType": "string",
+            "description": "话题标签"
+          },
+          {
+            "subTabName": "话题链接",
+            "contentType": "string",
+            "description": "话题链接地址"
+          },
+          {
+            "subTabName": "内容说明",
+            "contentType": "string",
+            "description": "话题说明"
+          },
+          {
+            "subTabName": "阅读数",
+            "contentType": "string",
+            "description": "话题阅读数"
+          },
+          {
+            "subTabName": "主持人",
+            "contentType": "string",
+            "description": "话题发布人"
+          },
+          {
+            "subTabName": "主持人链接",
+            "contentType": "string",
+            "description": "话题发布人链接"
+          }
+        ]
+      },
+      {
+        "tabName": "采集参数预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "",
+            "contentType": "string",
+            "description": ""
+          },
+          {
+            "subTabName": "",
+            "contentType": "table",
+            "headers": {
+              "keyword": ""
+            },
+            "data": [
+              {
+                "keyword": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tabName": "数据样例",
+        "contentType": "table",
+        "headers": {
+          "ranking": "排行",
+          "title": "标题",
+          "topic_tip": "话题标签",
+          "topic_url": "话题链接",
+          "description": "内容说明",
+          "readed_count": "阅读数",
+          "host": "主持人",
+          "host_url": "主持人链接"
+        },
+        "data": [
+          {
+            "ranking" : "TOP1",
+            "title" : "#为2020高考生加油#",
+            "topic_tip" : "社会",
+            "topic_url" : "https://s.weibo.com/weibo?q=%23%E4%B8%BA2020%E9%AB%98%E8%80%83%E7%94%9F%E5%8A%A0%E6%B2%B9%23",
+            "description" : "总有一天，你会感谢咬牙坚持的自己，也会怀念努力奋斗的日子。做好防...",
+            "readed_count" : "6.3亿",
+            "host" : "人民日报",
+            "host_url" : "https://weibo.com/u/2803301701?from=faxian_huati"
+          },
+          {
+            "ranking" : "TOP2",
+            "title" : "#pick最美夏日穿搭#",
+            "topic_tip" : "时尚",
+            "topic_url" : "https://s.weibo.com/weibo?q=%23pick%E6%9C%80%E7%BE%8E%E5%A4%8F%E6%97%A5%E7%A9%BF%E6%90%AD%23",
+            "description" : "如何能让自己的穿搭出圈？快来微博和绿洲种草你的夏日穿搭秘籍、必备...",
+            "readed_count" : "7.7亿",
+            "host" : "微博时尚",
+            "host_url" : "https://weibo.com/u/2452933723?from=faxian_huati"
+          },
+          {
+            "ranking" : "TOP3",
+            "title" : "#美国暴乱#",
+            "topic_tip" : "时事",
+            "topic_url" : "https://s.weibo.com/weibo?q=%23%E7%BE%8E%E5%9B%BD%E6%9A%B4%E4%B9%B1%23",
+            "description" : "",
+            "readed_count" : "49.2亿",
+            "host" : "",
+            "host_url" : ""
+          },
+          {
+            "ranking" : "4",
+            "title" : "#你最想变成游戏里...#",
+            "topic_tip" : "游戏",
+            "topic_url" : "https://s.weibo.com/weibo?q=%23%E4%BD%A0%E6%9C%80%E6%83%B3%E5%8F%98%E6%88%90%E6%B8%B8%E6%88%8F%E9%87%8C%E5%93%AA%E4%B8%AA%E8%A7%92%E8%89%B2%23",
+            "description" : "大家带话题#你最想变成游戏里哪个角色#发微博一起来说说你的想法吧。",
+            "readed_count" : "3.2亿",
+            "host" : "游戏迷小林",
+            "host_url" : "https://weibo.com/u/3041502153?from=faxian_huati"
+          },
+          {
+            "ranking" : "5",
+            "title" : "#6月天象时间表#",
+            "topic_tip" : "社会",
+            "topic_url" : "https://s.weibo.com/weibo?q=%236%E6%9C%88%E5%A4%A9%E8%B1%A1%E6%97%B6%E9%97%B4%E8%A1%A8%23",
+            "description" : "天文专家介绍6月将接连上演多个天象：①6月6日凌晨出现半影月食，我国...",
+            "readed_count" : "3亿",
+            "host" : "人民日报",
+            "host_url" : "https://weibo.com/u/2803301701?from=faxian_huati"
+          },
+          {
+            "ranking" : "6",
+            "title" : "#夏天里最幸福的瞬间#",
+            "topic_tip" : "情感",
+            "topic_url" : "https://s.weibo.com/weibo?q=%23%E5%A4%8F%E5%A4%A9%E9%87%8C%E6%9C%80%E5%B9%B8%E7%A6%8F%E7%9A%84%E7%9E%AC%E9%97%B4%23",
+            "description" : "夏天里最让你感到幸福的事情是什么？带话题发微博说说看吧~",
+            "readed_count" : "4.1亿",
+            "host" : "不二大叔说",
+            "host_url" : "https://weibo.com/u/3900215081?from=faxian_huati"
+          }
+        ]
+      }
+    ]
   }
 ]

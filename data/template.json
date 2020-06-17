@@ -46,5 +46,29 @@
     "isNeedParas": true,
     "src": "arachnid/go/a_map/",
     "cmd": "./a_map -paras=%s"
+  },
+  {
+    "templateId": 5,
+    "templateName": "汽车之家-汽车报价(selenium版)",
+    "templateEnName": "carhome_quotation_spider",
+    "websiteId": 10,
+    "websiteName": "汽车之家",
+    "categoryId": 5,
+    "categoryName": "社区论坛",
+    "isNeedParas": false,
+    "src": "arachnid/template/carhome_quotation/",
+    "cmd": "python carhome_quotation_spider.py --para=%s"
+  },
+  {
+    "templateId": 6,
+    "templateName": "微博-微博热门话题(selenium版)",
+    "templateEnName": "weibo_hotlist_spider",
+    "websiteId": 30,
+    "websiteName": "新浪微博",
+    "categoryId": 1,
+    "categoryName": "新闻门户",
+    "isNeedParas": false,
+    "src": "arachnid/template/weibo_hotlist/",
+    "cmd": "python weibo_hotlist_spider.py --para=%s"
   }
 ]

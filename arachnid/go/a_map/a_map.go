@@ -25,9 +25,9 @@ type Poi struct {
 	ID string  `json:"id"`
 	Name string  `json:"name"`
 	Type string   `json:"type"`
-	Address string   `json:"address"`
+	Address interface{}   `json:"address"`
 	Location string   `json:"location"`
-	Tel []string   `json:"tel"`
+	Tel interface{}   `json:"tel"`
 	PName string   `json:"pname"`
 	CityName string  `json:"cityname"`
 	AdName string  `json:"adname"`
@@ -66,14 +66,32 @@ type Parameter struct {
 }
 
 func insertSearchResult(poi Poi, page int) {
+	var telStr string
+	if tel, ok := poi.Tel.(string); ok {
+		telStr = tel
+	} else if tel, ok := poi.Tel.([]string); ok {
+		telStr = strings.Join(tel, ",")
+	} else {
+		telStr = ""
+	}
+
+	var addressStr string
+	if tel, ok := poi.Address.(string); ok {
+		addressStr = tel
+	} else if tel, ok := poi.Address.([]string); ok {
+		addressStr = strings.Join(tel, ",")
+	} else {
+		addressStr = ""
+	}
+
 	var contentDb = MongoResult{
 		Id:bson.NewObjectId(),
 		ID:poi.ID,
 		Name:poi.Name,
 		Type:poi.Type,
-		Address:poi.Address,
+		Address:addressStr,
 		Location:poi.Location,
-		Tel:strings.Join(poi.Tel, ","),
+		Tel:telStr,
 		PName:poi.PName,
 		CityName:poi.CityName,
 		AdName:poi.AdName,
