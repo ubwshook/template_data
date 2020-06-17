@@ -18,10 +18,11 @@ class SeleniumweiboSpider:
         option.add_argument('disable-infobars')  # 关闭提示信息
         option.add_argument('--no-sandbox')
         option.add_argument('--disable-dev-shm-usage')
+        option.add_argument("--start-maximized")
         prefs = {"safebrowsing.enabled": True, 'profile.managed_default_content_settings.images': 2}  # 不提示安全警告, 不显示图片
         option.add_experimental_option("prefs", prefs)
         self.driver = webdriver.Chrome(chrome_options=option, desired_capabilities=None)
-        self.driver.set_window_size(1300, 700)  # 设置窗口大小
+        self.driver.set_window_size(1920, 1080)  # 设置窗口大小
 
     def login_weibo(self):
         """账号密码输入强制等待，否则微博反爬"""
@@ -34,7 +35,7 @@ class SeleniumweiboSpider:
         # time.sleep(20)
         time.sleep(8)
         self.driver.find_element_by_xpath('//*[@id="pl_login_form"]/div/div[3]/div[2]/div/input').send_keys(Keys.ENTER)
-        time.sleep(8)
+        time.sleep(5)
 
     def get_url(self):
         """请求微博登录页面"""
@@ -45,10 +46,13 @@ class SeleniumweiboSpider:
     def click_list(self):
         """依次点击 发现、更多、话题"""
         time.sleep(3)
-        cookies = self.driver.get_cookies()
-        print(cookies)
+        # self.driver.find_element_by_xpath('//ul[@class="gn_nav_list"]//em[text()="发现"]').click()
+        # time.sleep(2.5)
+        # ActionChains(self.driver).move_to_element(self.driver.find_element_by_xpath('//span[@class="levtxt"][text()="更多"]')).perform()   # 悬停
+        # time.sleep(1.5)
+        # ActionChains(self.driver).click(self.driver.find_element_by_xpath('//*[text()="话题"]')).perform()             # 单击
         self.driver.find_element_by_xpath('//ul[@class="gn_nav_list"]//em[text()="发现"]').click()
-        time.sleep(5)
+        time.sleep(3)
         self.driver.find_element_by_xpath('//span[@class="levtxt"][text()="更多"]').click()
         time.sleep(1.5)
         self.driver.find_element_by_xpath('//*[text()="话题"]').click()
