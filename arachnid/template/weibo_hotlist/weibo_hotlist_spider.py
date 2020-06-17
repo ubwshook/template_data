@@ -16,6 +16,8 @@ class SeleniumweiboSpider:
         # option.add_argument("--remote-debugging-port=9222")
         option.headless = True  # do not open UI
         option.add_argument('disable-infobars')  # 关闭提示信息
+        option.add_argument('--no-sandbox')
+        option.add_argument('--disable-dev-shm-usage')
         prefs = {"safebrowsing.enabled": True, 'profile.managed_default_content_settings.images': 2}  # 不提示安全警告, 不显示图片
         option.add_experimental_option("prefs", prefs)
         self.driver = webdriver.Chrome(chrome_options=option, desired_capabilities=None)

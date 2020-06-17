@@ -13,6 +13,8 @@ def quotation_details(id_num, brand, min_brand, car_brand, car_quotation):
     option.add_experimental_option("prefs", {'profile.managed_default_content_settings.images': 2})
     option.headless = True  # do not open UI
     option.add_argument("disable-infobars")
+    option.add_argument('--no-sandbox')
+    option.add_argument('--disable-dev-shm-usage')
     driver = webdriver.Chrome(chrome_options=option, desired_capabilities=None)
     driver.set_window_size(1366, 768)
     driver.get(car_quotation)
