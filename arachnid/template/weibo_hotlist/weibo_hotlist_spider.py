@@ -44,10 +44,12 @@ class SeleniumweiboSpider:
 
     def click_list(self):
         """依次点击 发现、更多、话题"""
-        self.driver.find_element_by_xpath('//*[@id="plc_top"]/div/div/div[3]/div[1]/ul/li[3]/a').click()
-        self.driver.implicitly_wait(8)
-        time.sleep(0.01)
-        self.driver.find_element_by_xpath('//*[@id="Pl_Discover_LeftNav__2"]/div/div/div/div[15]/a').click()
+        time.sleep(3)
+        cookies = self.driver.get_cookies()
+        print(cookies)
+        self.driver.find_element_by_xpath('//ul[@class="gn_nav_list"]//em[text()="发现"]').click()
+        time.sleep(5)
+        self.driver.find_element_by_xpath('//span[@class="levtxt"][text()="更多"]').click()
         time.sleep(1.5)
         self.driver.find_element_by_xpath('//*[text()="话题"]').click()
         time.sleep(3)
