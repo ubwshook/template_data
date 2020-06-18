@@ -2,7 +2,6 @@
 import time
 from crawlab import save_item
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
 
 
@@ -16,8 +15,6 @@ class SeleniumweiboSpider:
         option.headless = True  # do not open UI
         option.add_argument('disable-infobars')  # 关闭提示信息
         option.add_argument("--start-maximized")
-        # prefs = {"safebrowsing.enabled": True, 'profile.managed_default_content_settings.images': 2}  # 不提示安全警告, 不显示图片
-        # option.add_experimental_option("prefs", prefs)
         self.driver = webdriver.Chrome(chrome_options=option, desired_capabilities=None)
         print("1：创建chrome")
 
@@ -75,8 +72,11 @@ class SeleniumweiboSpider:
 
     def xiala(self):
         time.sleep(2)
-        js1 = "window.scrollTo(0, document.body.scrollHeight)"
-        self.driver.execute_script(js1)
+        for i in range(0, 3):
+            js1 = "window.scrollTo(0, document.body.scrollHeight)"
+            self.driver.execute_script(js1)
+            time.sleep(2)
+        print("滚动下拉")
 
     def next_page(self):
         """点击下一页"""
@@ -109,8 +109,7 @@ class SeleniumweiboSpider:
             save_item(data)
             print("save data", data)
 
-    def start(self):
-        # try:
+    def run(self):
         self.web_chrom()
         self.login_weibo()
         self.click_list()
@@ -124,8 +123,6 @@ class SeleniumweiboSpider:
             self.save_data(data_list)
             time.sleep(2)
         self.driver.quit()
-        # except:
-        #     self.driver.quit()
 
 
 if __name__ == '__main__':
@@ -135,4 +132,4 @@ if __name__ == '__main__':
     # parameter_id = args.para
 
     spider = SeleniumweiboSpider()
-    spider.start()
+    spider.run()
