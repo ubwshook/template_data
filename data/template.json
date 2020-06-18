@@ -70,5 +70,29 @@
     "isNeedParas": false,
     "src": "arachnid/template/weibo_hotlist/",
     "cmd": "python weibo_hotlist_spider.py --para=%s"
+  },
+  {
+    "templateId": 7,
+    "templateName": "今日头条关键字搜索",
+    "templateEnName": "toutiao_keyword",
+    "websiteId": 3,
+    "websiteName": "今日头条",
+    "categoryId": 1,
+    "categoryName": "新闻门户",
+    "isNeedParas": true,
+    "src": "arachnid/template/toutiao/",
+    "cmd": "python toutiao_search.py --para=%s"
+  },
+  {
+    "templateId": 8,
+    "templateName": "知乎搜索综合信息抓取",
+    "templateEnName": "zhihu_search_comprehensive",
+    "websiteId": 7,
+    "websiteName": "知乎",
+    "categoryId": 5,
+    "categoryName": "社区论坛",
+    "isNeedParas": true,
+    "src": "arachnid/template/zhihu/",
+    "cmd": "python zhihu_search_comprehensive.py --para=%s"
   }
 ]

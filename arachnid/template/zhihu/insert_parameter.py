@@ -6,7 +6,7 @@ from pymongo.errors import DuplicateKeyError
 
 # 通过这里配置插入参数的参数
 SPIDER_ID = 0
-TEMPLATE_ID = 10
+TEMPLATE_ID = 8
 FILE_PATH = "keyword.csv"
 
 

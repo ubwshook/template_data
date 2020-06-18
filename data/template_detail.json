@@ -975,5 +975,204 @@
         ]
       }
     ]
-  }
+  },
+  {
+    "templateId": 7,
+    "tabs": [
+        {
+            "tabName": "模板介绍",
+            "contentType": "string",
+            "description": "此模板用于采集今日头条搜索信息，用户需提供搜索关键字"
+        },
+        {
+            "tabName": "字段预览",
+            "contentType": "tabs",
+            "subTabs": [
+                {
+                    "subTabName": "搜索关键字id",
+                    "contentType": "string",
+                    "description": "搜索关键字的唯一标识"
+                },
+                {
+                    "subTabName": "文章标题",
+                    "contentType": "image",
+                    "image": null
+                },
+                {
+                    "subTabName": "文章链接",
+                    "contentType": "image",
+                    "image": null
+                },
+                {
+                    "subTabName": "文章作者",
+                    "contentType": "image",
+                    "image": null
+                },
+                {
+                    "subTabName": "作者主页链接",
+                    "contentType": "image",
+                    "image": null
+                },
+                {
+                    "subTabName": "文章发表时间",
+                    "contentType": "image",
+                    "image": null
+                },
+                {
+                    "subTabName": "评论数",
+                    "contentType": "image",
+                    "image": null
+                }
+            ]
+        },
+        {
+            "tabName": "采集参数预览",
+            "contentType": "tabs",
+            "subTabs": [
+                {
+                    "subTabName": "关键字",
+                    "contentType": "image",
+                    "image": null
+                }
+            ]
+        },
+        {
+            "tabName": "数据样例",
+            "contentType": "table",
+            "headers": {
+                "keyword_id": "搜索关键字id",
+                "title": "文章标题",
+                "article_url": "文章链接",
+                "author": "文章作者",
+                "author_url": "作者主页链接",
+                "release_time": "文章发表时间",
+                "comment_counts": "评论数"
+            },
+            "data": [
+                {
+                    "keyword_id": 1,
+                    "title": "腾讯股价大涨4%创两年新高！马化腾身家暴涨700亿，坐稳中国首富……",
+                    "article_url": "https://www.toutiao.com/group/6825520981621080584/",
+                    "author": "金融界",
+                    "author_url": "http://toutiao.com/m3815887397/",
+                    "release_time": "2020/5/11 17:47",
+                    "comment_counts": 0
+                },
+                {
+                    "keyword_id": 2,
+                    "title": "网易暴力裁员风波：三年净利腰斩，丁磊称员工来工作为谋生非兴趣",
+                    "article_url": "https://www.toutiao.com/group/6763034283578753543/",
+                    "author": "AI财经社",
+                    "author_url": "http://toutiao.com/m1558737777313793/",
+                    "release_time": "2019/11/25 8:27",
+                    "comment_counts": 339
+                },
+                {
+                    "keyword_id": 3,
+                    "title": "华为正式宣布！任正非预言一步步成真，谷歌已经没有退路了",
+                    "article_url": "https://www.toutiao.com/group/6825282069556363780/",
+                    "author": "大煎饼谈历史",
+                    "author_url": "http://toutiao.com/m1655415103525896/",
+                    "release_time": "2020/5/11 2:20",
+                    "comment_counts": 0
+                }
+            ]
+        }
+    ]
+},
+  {
+    "templateId": 8,
+    "tabs": [
+        {
+            "tabName": "模板介绍",
+            "contentType": "string",
+            "description": "此模板用于采集知乎搜索后综合信息，用户需提供搜索关键字"
+        },
+        {
+            "tabName": "字段预览",
+            "contentType": "tabs",
+            "subTabs": [
+                {
+                    "subTabName": "搜索关键字id",
+                    "contentType": "string",
+                    "description": "搜索关键字的唯一标识"
+                },
+                {
+                    "subTabName": "标题",
+                    "contentType": "string",
+                    "description": "“综合”下的标题信息"
+                },
+                {
+                    "subTabName": "标题链接",
+                    "contentType": "string",
+                    "description": "“综合”下的标题链接"
+                },
+                {
+                    "subTabName": "赞同数",
+                    "contentType": "string",
+                    "description": "“综合”下的热门回复的点赞数"
+                },
+                {
+                    "subTabName": "评论数或回答数",
+                    "contentType": "string",
+                    "description": "“综合”下的热门回复的评论数或问题的回答数"
+                },
+                {
+                    "subTabName": "回复时间或发表时间",
+                    "contentType": "string",
+                    "description": "“综合”下的热门回复的编辑时间或问题的发表时间"
+                }
+            ]
+        },
+        {
+            "tabName": "采集参数预览",
+            "contentType": "tabs",
+            "subTabs": [
+                {
+                    "subTabName": "关键字",
+                    "contentType": "string",
+                    "description": "知乎搜索关键字"
+                }
+            ]
+        },
+        {
+            "tabName": "数据样例",
+            "contentType": "table",
+            "headers": {
+                "id": "搜索关键字id",
+                "title": "标题",
+                "link": "标题链接",
+                "agree_follow": "赞同数",
+                "comment_answer": "评论数或回答数",
+                "release_time": "回复时间或发表时间"
+            },
+            "data": [
+                {
+                    "id": 1,
+                    "title": "腾讯的软肋是什么？",
+                    "link": "https://www.zhihu.com/question/19554763/answer/25345084",
+                    "agree_follow": "​赞同3301​",
+                    "comment_answer": "​238条评论",
+                    "release_time": "2017-11-15"
+                },
+                {
+                    "id": 2,
+                    "title": "网易工作待遇如何？",
+                    "link": "https://www.zhihu.com/question/19717200/answer/129615665",
+                    "agree_follow": "​赞同83​",
+                    "comment_answer": "​添加评论",
+                    "release_time": "2017-08-31"
+                },
+                {
+                    "id": 3,
+                    "title": "华为为什么不选择上市？",
+                    "link": "https://www.zhihu.com/question/19676649/answer/745622208",
+                    "agree_follow": "​赞同1.7万​",
+                    "comment_answer": "​1,404条评论",
+                    "release_time": "2个月前"
+                }
+            ]
+        }
+    ]
+}
 ]
