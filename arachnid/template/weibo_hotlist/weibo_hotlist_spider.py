@@ -18,7 +18,7 @@ class SeleniumweiboSpider:
         option.add_argument("--start-maximized")
         # prefs = {"safebrowsing.enabled": True, 'profile.managed_default_content_settings.images': 2}  # 不提示安全警告, 不显示图片
         # option.add_experimental_option("prefs", prefs)
-        self.driver = webdriver.Chrome(chrome_options=option,executable_path=r"C:\Users\Administrator\PycharmProjects\untitled\venv\Scripts\chromedriver.exe", desired_capabilities=None)
+        self.driver = webdriver.Chrome(chrome_options=option, desired_capabilities=None)
         print("1：创建chrome")
 
     # def login_weibo(self):
