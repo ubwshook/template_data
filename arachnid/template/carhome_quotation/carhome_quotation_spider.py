@@ -39,9 +39,12 @@ class AsynSpider:
             if car_quotation == '无数据':
                 continue
             else:
-                data_list = quotation_details(id_num, brand, min_brand, car_brand, car_quotation)
-                print(data_list)
-                self.save_data(data_list)
+                try:
+                    data_list = quotation_details(id_num, brand, min_brand, car_brand, car_quotation)
+                    # print(data_list)
+                    self.save_data(data_list)
+                except:
+                    continue
             print("#爬取完成#", id_num, car_quotation)
 
 
