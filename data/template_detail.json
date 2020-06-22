@@ -1181,6 +1181,7 @@
             "subTabName": "参数样例",
             "contentType": "table",
             "headers": {
+              "id": "id",
               "keyword": "关键字"
             },
             "data": [
@@ -1356,5 +1357,112 @@
             ]
         }
     ]
-}
+},
+  {
+    "templateId": 9,
+    "tabs": [
+      {
+        "tabName": "模板介绍",
+        "contentType": "string",
+        "description": "此模板用于采集国家统计局-月度数据指标"
+      },
+      {
+        "tabName": "字段预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "表名称",
+            "contentType": "string",
+            "description": "统计表名称"
+          },
+          {
+            "subTabName": "行名称",
+            "contentType": "string",
+            "description": "统计表横行名称"
+          },
+          {
+            "subTabName": "列时间",
+            "contentType": "string",
+            "description": "统计表列时间"
+          },
+          {
+            "subTabName": "数据",
+            "contentType": "string",
+            "description": "数据值"
+          }
+        ]
+      },
+      {
+        "tabName": "采集参数预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "",
+            "contentType": "string",
+            "description": ""
+          },
+          {
+            "subTabName": "",
+            "contentType": "table",
+            "headers": {
+              "keyword": ""
+            },
+            "data": [
+              {
+                "keyword": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tabName": "数据样例",
+        "contentType": "table",
+        "headers": {
+          "table_name": "表名称",
+          "valuecode": "行名称",
+          "time_title": "列时间",
+          "data_num": "数据"
+        },
+        "data": [
+          {
+            "table_name" : "价格指数&居民消费价格分类指数(上年同月=100)&全国居民消费价格分类指数(上年同月=100)(2016-)",
+            "valuecode" : "居民消费价格指数(上年同月=100)",
+            "time_title" : "202005",
+            "data_num" : "102.43772471"
+          },
+          {
+            "table_name" : "价格指数&居民消费价格分类指数(上年同月=100)&全国居民消费价格分类指数(上年同月=100)(2016-)",
+            "valuecode" : "居民消费价格指数(上年同月=100)",
+            "time_title" : "202004",
+            "data_num" : "103.29199133"
+          },
+          {
+            "table_name" : "价格指数&居民消费价格分类指数(上年同月=100)&全国居民消费价格分类指数(上年同月=100)(2016-)",
+            "valuecode" : "居民消费价格指数(上年同月=100)",
+            "time_title" : "202003",
+            "data_num" : "104.27006363"
+          },
+          {
+            "table_name" : "价格指数&居民消费价格分类指数(上年同月=100)&全国居民消费价格分类指数(上年同月=100)(2016-)",
+            "valuecode" : "居民消费价格指数(上年同月=100)",
+            "time_title" : "202001",
+            "data_num" : "105.38456885"
+          },
+          {
+            "table_name" : "价格指数&居民消费价格分类指数(上年同月=100)&全国居民消费价格分类指数(上年同月=100)(2016-)",
+            "valuecode" : "食品烟酒类居民消费价格指数(上年同月=100)",
+            "time_title" : "202004",
+            "data_num" : "111.25969302"
+          },
+          {
+            "table_name" : "价格指数&居民消费价格分类指数(上年同月=100)&全国居民消费价格分类指数(上年同月=100)(2016-)",
+            "valuecode" : "食品烟酒类居民消费价格指数(上年同月=100)",
+            "time_title" : "202003",
+            "data_num" : "113.59269936"
+          }
+        ]
+      }
+    ]
+  }
 ]

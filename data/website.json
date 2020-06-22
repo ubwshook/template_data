@@ -250,5 +250,14 @@
     "CategoryId": 1,
     "logoUrl": "/image/website_logo?website_id=30",
     "WebsiteUrl": "/templates?website_id=30"
+  },
+  {
+    "websiteId": 31,
+    "name": "国家统计局-月度数据指标31",
+    "description": "国家统计局是国务院直属机构，主管全国统计和国民经济核算工作，拟定统计工作法规、统计改革和统计现代化建设规划以及国家统计调查计划，组织领导和监督检查各地区、各部门的统计和国民经济核算工作，监督检查统计法律法规的实施。",
+    "isHot": true,
+    "CategoryId": 7,
+    "logoUrl": "/image/website_logo?website_id=31",
+    "WebsiteUrl": "/templates?website_id=31"
   }
 ]

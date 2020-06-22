@@ -102,5 +102,18 @@
     "isBinary": false,
     "src": "arachnid/template/zhihu/",
     "cmd": "python zhihu_search_comprehensive.py --para=%s"
+  },
+    {
+    "templateId": 9,
+    "templateName": "国家统计局-月度数据",
+    "templateEnName": "stats_monthlydata_spider",
+    "websiteId": 30,
+    "websiteName": "新浪微博",
+    "categoryId": 1,
+    "categoryName": "新闻门户",
+    "isNeedParas": false,
+    "isBinary": false,
+    "src": "arachnid/template/weibo_hotlist/",
+    "cmd": "python weibo_hotlist_spider.py --para=%s"
   }
 ]
