@@ -1,4 +1,4 @@
-import pymysql
+from crawlab.db import db
 from pyppeteer import launch
 import datetime
 import asyncio
@@ -6,37 +6,46 @@ import asyncio
 
 class Cookies:
 
+    collection = db['TtCookie']
+
     def read_cookies(self):
-        db = pymysql.connect(host='192.168.6.26', user='root', password='root', database='demo', port=3306,
-                             charset='utf8')
-        cursor = db.cursor()
+        '''
+        从TtCookie删除读取cookie
+        :return:
+        '''
         now_time = datetime.datetime.now()
         before_time = (now_time - datetime.timedelta(days=3))
-        sql = "DELETE FROM `demo`.`tb_toutiao_cookies` WHERE create_time <= '{}'".format(before_time)
-        cursor.execute(sql)
-        db.commit()
-        sql_ = "SELECT cookie FROM `demo`.`tb_toutiao_cookies`"
         cookies = list()
         try:
-            cursor.execute(sql_)
-            # 获得cookies元组
-            results = cursor.fetchall()
-            for row in results:
-                cookie = str(row[0])
+            self.collection.remove({'create_time': {'$lte': before_time}})
+            collection_ = self.collection.find()
+            for item in collection_:
+                cookie = item['cookie']
                 cookies.append(cookie)
         except Exception as e:
-            print("数据读取失败", e)
-        return cookies, db, cursor
+            print("mongo操作失败", e)
+        return cookies
 
-    async def add_cookies(self,db, cursor):
+    async def add_cookies(self):
+        '''
+        可用cookie不足，抓取新cookie
+        :return:
+        '''
         browser = await launch(
-            {'headless': False,
-             'userDataDir': './userdata',
-             "args": "['--disable-infobars', f'--window-size={width},{height}']"
+            {'headless': True,
+             'dumpio': True,
+             #'userDataDir': './userdata',
+             'args': [
+                                '--disable-extensions',
+                                '--disable-bundled-ppapi-flash',
+                                '--mute-audio',
+                                '--no-sandbox',
+                                '--disable-setuid-sandbox',
+                                '--disable-infobars',
+                            ]
              }
         )
         page = await browser.newPage()
-        await page.setViewport(viewport={'width': 1366, 'height': 768})
         await page.goto('https://www.toutiao.com/')
         await asyncio.sleep(3)
         more_cookies = list()
@@ -47,24 +56,21 @@ class Cookies:
             cookie_list = list()
             [cookie_list.append(i['name'] + '=' + i['value']) for i in cookies]
             cookie = ';'.join(cookie_list)
-            tt_scid = cookie.split(';')[-1]
             more_cookies.append(cookie)
-            # print(cookie)
-            tb = "INSERT INTO tb_toutiao_cookies(cookie,tt_scid) VALUES (%s, %s) ON DUPLICATE KEY UPDATE cookie = %s, tt_scid = %s"
-            try:
-                cursor.execute(tb, (cookie, tt_scid, cookie, tt_scid))
-                db.commit()
-            except Exception as e:
-                print(e)
-                db.rollback()
+            print(cookie)
+            item = {'create_time':datetime.datetime.now(),'cookie':cookie}
+            self.collection.update({'cookie': cookie}, {'$set': item}, True)
         return more_cookies
 
     def get_cookies(self):
-        cookies, db, cursor = self.read_cookies()
+        '''
+        获取cookie主程序
+        :return:
+        '''
+        cookies = self.read_cookies()
         if len(cookies) < 20:
-            more_cookies = asyncio.get_event_loop().run_until_complete(self.add_cookies(db, cursor))
+            more_cookies = asyncio.get_event_loop().run_until_complete(self.add_cookies())
             cookies = cookies + more_cookies
         else:
             pass
-        # print(cookies)
         return cookies

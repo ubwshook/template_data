@@ -428,6 +428,149 @@
   ]
 },
   {
+    "templateId": 3,
+    "tabs": [
+      {
+        "tabName": "模板介绍",
+        "contentType": "string",
+        "description": "此模板用于采集京东商城-京东商品热卖排行榜"
+      },
+      {
+        "tabName": "字段预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "排行榜类别",
+            "contentType": "string",
+            "description": "商品排行榜类别"
+          },
+          {
+            "subTabName": "排行榜名称",
+            "contentType": "string",
+            "description": "商品排行榜名称"
+          },
+          {
+            "subTabName": "排名",
+            "contentType": "string",
+            "description": "商品排名"
+          },
+          {
+            "subTabName": "名称",
+            "contentType": "string",
+            "description": "商品名称"
+          },
+          {
+            "subTabName": "价格",
+            "contentType": "string",
+            "description": "商品价格"
+          },
+          {
+            "subTabName": "关注数",
+            "contentType": "string",
+            "description": "商品关注数"
+          },
+          {
+            "subTabName": "图片",
+            "contentType": "string",
+            "description": "商品图片链接"
+          }
+        ]
+      },
+      {
+        "tabName": "采集参数预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "",
+            "contentType": "string",
+            "description": ""
+          },
+          {
+            "subTabName": "",
+            "contentType": "table",
+            "headers": {
+              "keyword": ""
+            },
+            "data": [
+              {
+                "keyword": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tabName": "数据样例",
+        "contentType": "table",
+        "headers": {
+          "type_name": "排行榜类别",
+          "min_type_name": "排行榜名称",
+          "current_rank": "排名",
+          "ware_name": "名称",
+          "jd_price": "价格",
+          "good_str": "关注数",
+          "img_path": "图片"
+        },
+        "data": [
+          {
+            "type_name" : "手机",
+            "min_type_name" : "全部",
+            "current_rank" : "1",
+            "ware_name" : "Apple iPhone 11 (A2223) 128GB 白色 移动联通电信4G手机 双卡双待",
+            "jd_price" : "5999",
+            "good_str" : "44万+",
+            "img_path" : "http://m.360buyimg.com/n1/s220x220_jfs/t1/52252/35/10516/124064/5d7808e0E46202391/7100f3733a1c1f00.jpg"
+          },
+          {
+            "type_name" : "手机",
+            "min_type_name" : "全部",
+            "current_rank" : "2",
+            "ware_name" : "Apple iPhone 11 (A2223) 128GB 紫色 移动联通电信4G手机 双卡双待",
+            "jd_price" : "5999",
+            "good_str" : "44万+",
+            "img_path" : "http://m.360buyimg.com/n1/s220x220_jfs/t1/60076/30/9843/105371/5d7809f9Ed0972291/cfac96745d7f978a.jpg"
+          },
+          {
+            "type_name" : "手机",
+            "min_type_name" : "全部",
+            "current_rank" : "3",
+            "ware_name" : "Apple iPhone 11 (A2223) 128GB 黑色 移动联通电信4G手机 双卡双待",
+            "jd_price" : "5999",
+            "good_str" : "44万+",
+            "img_path" : "http://m.360buyimg.com/n1/s220x220_jfs/t1/59022/28/10293/141808/5d78088fEf6e7862d/68836f52ffaaad96.jpg"
+          },
+          {
+            "type_name" : "手机",
+            "min_type_name" : "全部",
+            "current_rank" : "4",
+            "ware_name" : "vivo Z5x 712升级版 6GB+128GB 极光色 骁龙712处理器 极点屏手机 5000mAh大电池 三摄拍照手机 全网通4G手机",
+            "jd_price" : "1098",
+            "good_str" : "22万+",
+            "img_path" : "http://m.360buyimg.com/n1/s220x220_jfs/t1/124413/33/116/163984/5eb37ecfE83bc43ad/ae5987e893ffbd24.jpg"
+          },
+          {
+            "type_name" : "手机",
+            "min_type_name" : "全部",
+            "current_rank" : "5",
+            "ware_name" : "Apple iPhone 11 (A2223) 128GB 绿色 移动联通电信4G手机 双卡双待",
+            "jd_price" : "5999",
+            "good_str" : "44万+",
+            "img_path" : "http://m.360buyimg.com/n1/s220x220_jfs/t1/41566/13/14792/149059/5d7809a7E99b4ed1b/56ea66c5f8a6f724.jpg"
+          },
+          {
+            "type_name" : "手机",
+            "min_type_name" : "全部",
+            "current_rank" : "6",
+            "ware_name" : "Apple iPhone 11 (A2223) 64GB 黑色 移动联通电信4G手机 双卡双待",
+            "jd_price" : "5499",
+            "good_str" : "44万+",
+            "img_path" : "http://m.360buyimg.com/n1/s220x220_jfs/t1/95317/25/6293/186439/5df2ff15E661016ab/dd6f142f583663bb.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "templateId": 4,
     "tabs": [
       {

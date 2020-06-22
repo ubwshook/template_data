@@ -127,7 +127,7 @@ class TtSearch(object):
     def start(self):
         self.init()
         self.get_parameter()
-        print(self.keyword_list)
+        #print(self.keyword_list)
         for keyword in self.keyword_list:
             self.make_url_info(keyword)
         crawlers = [self.Crawler(self.url_queue, self.page_parse, self.save_data, self.generate_page) for _ in

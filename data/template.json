@@ -27,7 +27,7 @@
   },
   {
     "templateId": 3,
-    "templateName": "京东商品热卖榜",
+    "templateName": "京东商品热卖排行榜",
     "templateEnName": "jd_hot_item",
     "websiteId": 1,
     "websiteName": "京东商城",
@@ -35,8 +35,8 @@
     "categoryName": "电商平台",
     "isNeedParas": false,
     "isBinary": false,
-    "src": "",
-    "cmd": ""
+    "src": "arachnid/template/jd_hotlist/",
+    "cmd": "python jd_hotlist_spider.py --para=%s"
   },
   {
     "templateId": 4,
