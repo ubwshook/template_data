@@ -85,6 +85,21 @@ class ZhSearch:
     def save_data(self, data):
         save_item(data)
 
+    async def arrange(self,titles,links,contents):
+        '''
+        移除非目标元素
+        :param titles:
+        :param links:
+        :param contents:
+        :return:
+        '''
+        for n in range(len(titles))[::-1]:
+            text = (await (await contents[n].getProperty('textContent')).jsonValue()).replace(' ','')
+            if '写回答' in text:
+                titles.pop(n)
+                links.pop(n)
+                contents.pop(n)
+
     async def get_comprehensive(self,page,id):
         '''
         抓取综合信息
@@ -102,7 +117,8 @@ class ZhSearch:
                 '.ListShortcut >div >div >div[data-za-detail-view-path-module*="Item"] div.ContentItem-actions > [class*="Button--plain"]')
             release_times = await page.querySelectorAll(
                 '.ListShortcut >div >div >div[data-za-detail-view-path-module*="Item"] div.ContentItem-actions > [class*="SearchItem-time"]')
-            #print(id,len(titles),len(links),len(contents),len(comments_answers),len(release_times))
+            await self.arrange(titles,links,contents)
+            print(id,len(titles),len(links),len(contents),len(comments_answers),len(release_times))
             for num in range(0, len(titles)):
                 title = self.filter_emoji(await (await titles[num].getProperty('textContent')).jsonValue())
                 link = await (await links[num].getProperty('href')).jsonValue()
@@ -125,12 +141,21 @@ class ZhSearch:
         :return:
         '''
         print(id,keyword,url)
-        browser = await launch({'headless': False,'dumpio': True, #'userDataDir': './userdata',
-                                'args': "['--disable-infobars','--no-sandbox',f'--window-size={width},{height}']"})
+        browser = await launch({'devtools': False,'headless': False,'dumpio': True, #'userDataDir': './userdata',
+                                'args': [
+                                '--disable-extensions',
+                                '--disable-bundled-ppapi-flash',
+                                '--mute-audio',
+                                '--no-sandbox',
+                                '--disable-setuid-sandbox',
+                                '--disable-infobars',
+                            ]})
         page = await browser.newPage()
+        await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                                "(KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36")
         await page.setViewport(viewport={'width': 1366, 'height': 768})
-        await page.goto(url, options={'timeout': 60000})
         #await self.page_evaluate()
+        await page.goto(url, options={'timeout': 60000})
         print('--------------------' + str(id) + '开始抓取综合信息--------------------')
         await self.get_comprehensive(page,id)
 

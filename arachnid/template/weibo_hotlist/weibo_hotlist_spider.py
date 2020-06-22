@@ -11,11 +11,14 @@ class SeleniumweiboSpider:
     #     self.para_id = para_id
 
     def web_chrom(self):
-        option = webdriver.ChromeOptions()  # 创建浏览器
+        option = webdriver.ChromeOptions()
+        option.add_experimental_option("prefs", {'profile.managed_default_content_settings.images': 2})
         option.headless = True  # do not open UI
-        option.add_argument('disable-infobars')  # 关闭提示信息
-        option.add_argument("--start-maximized")
+        option.add_argument("disable-infobars")
+        option.add_argument('--no-sandbox')
+        option.add_argument('--disable-dev-shm-usage')
         self.driver = webdriver.Chrome(chrome_options=option, desired_capabilities=None)
+        self.driver.set_window_size(1366, 768)
         print("1：创建chrome")
 
     # def login_weibo(self):
@@ -45,7 +48,10 @@ class SeleniumweiboSpider:
         self.driver.get('https://weibo.com/')
         time.sleep(8)
         self.driver.implicitly_wait(8)
-        cookie5 = {'name': 'SUB', 'value': '_2A25z7rnFDeRhGeRK7VUU9ybJyTuIHXVQnawNrDV8PUNbmtANLU_4kW9NUyhmohzu_EHEyz-qSCo-sm0dptsgVjM5', 'domain': '.weibo.com', 'path': '/'}
+        cookie5 = {'name': 'SCF',
+                   'value': 'Anqo4cwZ1nvECOco_HxrvIZX1XkP3iI45rfT8DitZ-Oj4KLTXlNaEmJlwax8V5uBt5JHfxCHp7MFqST_8o2Jgrw.',
+                   'domain': '.weibo.com', 'path': '/'}
+        # cookie5 = {'name': 'SUB', 'value': '_2A25z6CraDeRhGeRK7VUU9ybJyTuIHXVQnBsSrDV8PUNbmtAKLRTBkW9NUyhmog6xqayNGLqYKvhcKcCMHAJoIc2B', 'domain': '.weibo.com', 'path': '/'}
         print("加入cookies")
         self.driver.add_cookie(cookie5)
         self.driver.get('https://weibo.com/')
@@ -55,12 +61,22 @@ class SeleniumweiboSpider:
 
     def click_list(self):
         """依次点击 发现、更多、话题"""
-        time.sleep(3)
-        self.driver.find_element_by_xpath('//ul[@class="gn_nav_list"]//em[text()="发现"]').click()
-        time.sleep(2.5)
-        ActionChains(self.driver).move_to_element(self.driver.find_element_by_xpath('//span[@class="levtxt"][text()="更多"]')).perform()   # 悬停
-        time.sleep(1.5)
-        ActionChains(self.driver).click(self.driver.find_element_by_xpath('//*[text()="话题"]')).perform()             # 单击
+        # time.sleep(3)
+        # self.driver.find_element_by_xpath('//ul[@class="gn_nav_list"]//em[text()="发现"]').click()
+        # time.sleep(2.5)
+
+        # try:
+        #     self.driver.find_element_by_xpath('//span[@class="levtxt"][text()="更多"]').click()
+        #     time.sleep(1.5)
+        #     self.driver.find_element_by_xpath('//span[@class="levtxt"][text()="话题"]').click()
+        #     time.sleep(2.5)
+        # except:
+            # huati = self.driver.find_element_by_xpath('//a[@suda-uatrack="key=www_discovery_more&value=topic"]').get_attribute('href')
+        huati_url = 'https://d.weibo.com/231650'
+        self.driver.get(huati_url)
+        print("ok")
+        # ActionChains(self.driver).move_to_element(self.driver.find_element_by_xpath('//span[@class="levtxt"][text()="更多"]')).perform()   # 悬停
+        # ActionChains(self.driver).click(self.driver.find_element_by_xpath('//span[@class="levtxt"][text()="话题"]')).perform()             # 单击
         time.sleep(3)
         # self.driver.get_screenshot_as_file("huati2.png")
         print("3：进入话题")

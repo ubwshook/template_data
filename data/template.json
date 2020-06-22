@@ -8,6 +8,7 @@
     "categoryId": 3,
     "categoryName": "电商平台",
     "isNeedParas": true,
+    "isBinary": false,
     "src": "arachnid/template/jd/",
     "cmd": "python jd_keyword.py --para=%s"
   },
@@ -20,6 +21,7 @@
     "categoryId": 9,
     "categoryName": "实用工具",
     "isNeedParas": true,
+    "isBinary": false,
     "src": "arachnid/template/a-map/",
     "cmd": "python a_map_poi.py --para=%s"
   },
@@ -32,6 +34,7 @@
     "categoryId": 3,
     "categoryName": "电商平台",
     "isNeedParas": false,
+    "isBinary": false,
     "src": "",
     "cmd": ""
   },
@@ -44,8 +47,9 @@
     "categoryId": 9,
     "categoryName": "实用工具",
     "isNeedParas": true,
+    "isBinary": true,
     "src": "arachnid/go/a_map/",
-    "cmd": "./a_map -paras=%s"
+    "cmd": "./a_map_%s -paras=%s"
   },
   {
     "templateId": 5,
@@ -56,6 +60,7 @@
     "categoryId": 5,
     "categoryName": "社区论坛",
     "isNeedParas": false,
+    "isBinary": false,
     "src": "arachnid/template/carhome_quotation/",
     "cmd": "python carhome_quotation_spider.py --para=%s"
   },
@@ -68,6 +73,7 @@
     "categoryId": 1,
     "categoryName": "新闻门户",
     "isNeedParas": false,
+    "isBinary": false,
     "src": "arachnid/template/weibo_hotlist/",
     "cmd": "python weibo_hotlist_spider.py --para=%s"
   },
@@ -80,6 +86,7 @@
     "categoryId": 1,
     "categoryName": "新闻门户",
     "isNeedParas": true,
+    "isBinary": false,
     "src": "arachnid/template/toutiao/",
     "cmd": "python toutiao_search.py --para=%s"
   },
@@ -92,6 +99,7 @@
     "categoryId": 5,
     "categoryName": "社区论坛",
     "isNeedParas": true,
+    "isBinary": false,
     "src": "arachnid/template/zhihu/",
     "cmd": "python zhihu_search_comprehensive.py --para=%s"
   }

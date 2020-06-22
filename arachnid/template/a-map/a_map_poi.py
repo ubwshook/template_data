@@ -16,7 +16,7 @@ from crawl import Crawler
 URL = "https://restapi.amap.com/v3/place/text?keywords={}&city={}&key={}"
 URL_PAGE = "https://restapi.amap.com/v3/place/text?keywords={}&city={}&key={}&page={}"
 CITY = "西安"
-KEY = "29be3b94d63b389134048d757e3fcc8b"
+KEY = "9280b7a213f3e018bacfd187e5a34e0e"
 
 
 def field_mapping(mapping_dict, src, dst):

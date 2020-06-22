@@ -1033,7 +1033,25 @@
                     "subTabName": "关键字",
                     "contentType": "image",
                     "image": null
-                }
+                },
+              {
+            "subTabName": "参数样例",
+            "contentType": "table",
+            "headers": {
+              "keyword": "关键字"
+            },
+            "data": [
+              { "id": "1",
+                "keyword": "腾讯"
+              },
+              { "id": "2",
+                "keyword": "网易"
+              },
+              { "id": "3",
+                "keyword": "华为"
+              }
+            ]
+          }
             ]
         },
         {
@@ -1132,7 +1150,28 @@
                     "subTabName": "关键字",
                     "contentType": "string",
                     "description": "知乎搜索关键字"
-                }
+                },
+              {
+            "subTabName": "参数样例",
+            "contentType": "table",
+            "headers": {
+              "keyword": "关键字"
+            },
+            "data": [
+              { "id": "1",
+                "keyword": "腾讯",
+                "search_url": "https://www.zhihu.com/search?type=content&q=%E8%85%BE%E8%AE%AF"
+              },
+              { "id": "2",
+                "keyword": "网易",
+                "search_url": "https://www.zhihu.com/search?type=content&q=%E7%BD%91%E6%98%93"
+              },
+              { "id": "3",
+                "keyword": "华为",
+                "search_url": "https://www.zhihu.com/search?type=content&q=%E5%8D%8E%E4%B8%BA"
+              }
+            ]
+          }
             ]
         },
         {

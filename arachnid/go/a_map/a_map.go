@@ -19,7 +19,8 @@ import (
 
 const URL = "https://restapi.amap.com/v3/place/text?keywords=%s&city=%s&key=%s"
 const CITY = "西安"
-const KEY = "29be3b94d63b389134048d757e3fcc8b"
+//const KEY = "29be3b94d63b389134048d757e3fcc8b"
+const KEY = "9280b7a213f3e018bacfd187e5a34e0e"
 
 type Poi struct {
 	ID string  `json:"id"`
@@ -102,6 +103,8 @@ func insertSearchResult(poi Poi, page int) {
 }
 
 func main() {
+	// GOOS=linux GOARCH=amd64 go build -o a_map_amd64
+	// GOOS=linux GOARCH=arm64 go build -o a_map_arm64
 	// a_map.exe -paras=5ed9e77fa0a6cd055734386c
 
 	fmt.Println("Spider amap start...")
