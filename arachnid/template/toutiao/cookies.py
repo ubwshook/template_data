@@ -54,7 +54,8 @@ class Cookies:
             await asyncio.sleep(3)
             cookies = await page.cookies()
             cookie_list = list()
-            [cookie_list.append(i['name'] + '=' + i['value']) for i in cookies]
+            cookie_names = ['tt_webid','__tasessionId','s_v_web_id','ttcid','WEATHER_CITY','SLARDAR_WEB_ID','tt_webid','csrftoken','tt_scid','']
+            [cookie_list.append(i['name'] + '=' + i['value']) for i in cookies if i['value'] in cookie_names]
             cookie = ';'.join(cookie_list)
             more_cookies.append(cookie)
             print(cookie)

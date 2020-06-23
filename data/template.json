@@ -103,7 +103,7 @@
     "src": "arachnid/template/zhihu/",
     "cmd": "python zhihu_search_comprehensive.py --para=%s"
   },
-    {
+  {
     "templateId": 9,
     "templateName": "国家统计局-月度数据",
     "templateEnName": "stats_monthlydata_spider",
@@ -115,5 +115,18 @@
     "isBinary": false,
     "src": "arachnid/template/weibo_hotlist/",
     "cmd": "python weibo_hotlist_spider.py --para=%s"
+  },
+  {
+    "templateId": 12,
+    "templateName": "百度搜搜新闻资讯",
+    "templateEnName": "baidu_news",
+    "websiteId": 2,
+    "websiteName": "百度搜索",
+    "categoryId": 6,
+    "categoryName": "搜索引擎",
+    "isNeedParas": true,
+    "isBinary": false,
+    "src": "arachnid/template/baidu/",
+    "cmd": "python baidu_news.py --para=%s"
   }
 ]

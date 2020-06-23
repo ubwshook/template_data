@@ -36,7 +36,7 @@ class SeleniumjdSpider:
             self.driver.switch_to.window(handle_run)
         else:
             handle_run = handles[1]
-            self.driver.close()
+            # self.driver.close()
             self.driver.switch_to.window(handle_run)
             time.sleep(4)
 

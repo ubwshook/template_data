@@ -94,7 +94,7 @@ class TtSearch(object):
                         item_info['comment_counts'] = item['comment_count']
                         data_list.append(item_info)
                     except:
-                        print('----------抓到的不是搜索结果----------')
+                        pass
                 else:
                     pass
         else:

@@ -13,7 +13,7 @@ FILE_PATH = "keyword.csv"
 def read_csv_file(file_name):
     csv_list = []
     with open(file_name, newline='') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+        spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
         for row in spamreader:
             line_list = []
             for line in row:

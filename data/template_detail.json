@@ -1464,5 +1464,117 @@
         ]
       }
     ]
+  },
+  {
+    "templateId": 12
+    "tabs": [
+      {
+        "tabName": "模板介绍",
+        "contentType": "string",
+        "description": "此模板用于百度搜素中新闻资讯的信息，输入参数是搜索关键字和最大抓取页数"
+      },
+      {
+        "tabName": "字段预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "标题",
+            "contentType": "string",
+            "description": "搜索结果中的新闻标题"
+          },
+          {
+            "subTabName": "发布者",
+            "contentType": "string",
+            "description": "资讯的发布者"
+          },
+          {
+            "subTabName": "发布时间",
+            "contentType": "string",
+            "description": "资讯发布的时间"
+          },
+          {
+            "subTabName": "链接",
+            "contentType": "string",
+            "description": "资讯的原文链接"
+          }
+        ]
+      },
+      {
+        "tabName": "采集参数预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "关键字",
+            "contentType": "string",
+            "description": "资讯搜索的关键字"
+          },
+          {
+            "subTabName": "页数",
+            "contentType": "string",
+            "description": "最大抓取页数，不超过100"
+          },
+          {
+            "subTabName": "参数样例",
+            "contentType": "table",
+            "headers": {
+              "keyword": "关键字",
+              "page": "页码"
+            },
+            "data": [
+              {
+                "keyword": "汽车",
+                "page": 100
+              },
+              {
+                "keyword": "疫情",
+                "page": 10
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tabName": "数据样例",
+        "contentType": "table",
+        "headers": {
+          "title": "标题",
+          "author": "发布者",
+          "time": "发布时间",
+          "href": "链接"
+        },
+        "data": [
+          {
+            "title" : "自曝预亏超百亿,高管离职员工放假!众泰汽车债务危机压顶",
+            "author" : "中国经济网",
+            "time" : "2020年06月22日 16:44",
+            "href " : "https://baijiahao.baidu.com/s?id=1670188303203712015&wfr=spider&for=pc"
+          },
+          {
+            "title" : "后疫情时代,被低估了的汽车直播",
+            "author" : "砍柴网",
+            "time" : "2020年06月22日 21:52",
+            "href " : "https://baijiahao.baidu.com/s?id=1670207475221072452&wfr=spider&for=pc"
+          },
+          {
+            "title" : "后疫情时代,被低估了的汽车直播",
+            "author" : "砍柴网",
+            "time" : "2020年06月22日 21:52",
+            "href " : "https://baijiahao.baidu.com/s?id=1670207475221072452&wfr=spider&for=pc"
+          },
+          {
+            "title" : "吉利“困局”:成也SUV败也SUV 汽车行业面临洗牌",
+            "author" : "新浪",
+            "time" : "2020年06月22日 12:45",
+            "href " : "https://finance.sina.cn/chanjing/gsxw/2020-06-22/detail-iirczymk8334254.d.html?vt=4&wm=2278_1448"
+          },
+          {
+            "title" : "众泰汽车凉凉?欠薪3.2亿元 员工放假一年",
+            "author" : "腾讯新闻",
+            "time" : "2020年06月22日 00:00",
+            "href " : "https://new.qq.com/omn/20200622/20200622A0IERB00.html"
+          }
+        ]
+      }
+    ]
   }
 ]
