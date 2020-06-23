@@ -58,6 +58,7 @@ class BaiduNewsSpider(object):
         item_list = list()
         results = soup.find('div', attrs={"id": "content_left"}).find_all('div', attrs={'class': 'result'})
         for result in results:
+            item_info = dict()
             try:
                 item_info['title'] = result.h3.text.strip()
                 tmp = result.find("p", attrs={'class': "c-author"}).text.strip().split(" ")
