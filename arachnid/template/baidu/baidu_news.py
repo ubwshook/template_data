@@ -39,7 +39,7 @@ class BaiduNewsSpider(object):
 
     def make_url_info(self, keyword, total_page):
         quote_keyword = quote(keyword)
-        url = 'https://www.baidu.com/s?rtt=1&bsst=1&cl=2&tn=news&fr=image&ie=utf-8&word={}'.format(keyword=quote_keyword)
+        url = 'https://www.baidu.com/s?rtt=1&bsst=1&cl=2&tn=news&fr=image&ie=utf-8&word={keyword}'.format(keyword=quote_keyword)
         url_info = {
             'keyword': keyword,
             'url': url,
