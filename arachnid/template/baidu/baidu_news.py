@@ -75,7 +75,7 @@ class BaiduNewsSpider(object):
         total_page = url_info['total_page']
         keyword = quote(url_info['keyword'])
         for p in range(2, int(total_page) + 1):
-            new_url = 'https://www.baidu.com/s?rtt=1&bsst=1&cl=2&tn=news&fr=image&ie=utf-8&word={}&pn={}'.format(
+            new_url = 'https://www.baidu.com/s?rtt=1&bsst=1&cl=2&tn=news&fr=image&ie=utf-8&word={keyword}&pn={page}'.format(
                 keyword=keyword, page=str(p * 10))
             url_info = {
                 'keyword': url_info['keyword'],
