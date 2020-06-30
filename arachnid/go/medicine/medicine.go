@@ -3,32 +3,38 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"flag"
 	"fmt"
+	"github.com/globalsign/mgo/bson"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"net/url"
 	"regexp"
+	"runtime/debug"
 	"strconv"
 	"strings"
 	"time"
 
 	"github.com/chromedp/cdproto/page"
 	"github.com/chromedp/chromedp"
+
+	"spiders/config"
+	"spiders/database"
 )
 
-const DevtoolsUrl string = "http://localhost:9222"
-const OnePartition int = 10
-const testMaxPage int = 30
+//const DevtoolsUrl string = "http://localhost:9222"
+const OnePartition int = 5
+const MaxPage int = 10
 
 type table map[string]string
 
 type Content struct {
-	MedicId string
-	Type string
-	Content string
-	Page int
+	Id          bson.ObjectId  `json:"_id" bson:"_id"`
+	TaskId      string         `json:"task_id" bson:"task_id"`
+	MedicId     string         `json:"medic_id" bson:"medic_id"`
+	Type        string         `json:"type" bson:"type"`
+	Content     string         `json:"content" bson:"content"`
+	Page        int            `json:"page" bson:"page"`
 }
 
 type ChromeHeadlessInfo struct {
@@ -200,7 +206,7 @@ type medicine struct {
 	Page int
 }
 
-func formatDetailInfo(db *gorm.DB, content string, medicId string, currentType string, pagePoint int) {
+func formatDetailInfo(content string, medicId string, currentType string, pagePoint int) {
 	medic := medicine{}
 	medic.Id = medicId
 	medic.Content = content
@@ -214,23 +220,20 @@ func formatDetailInfo(db *gorm.DB, content string, medicId string, currentType s
 
 	fmt.Printf("Id:%s, Type:%s, %s, Page:%d.\n",medic.Id, medic.Type, showContent,medic.Page)
 
-	//TODO,Just test.
-	//medic.Content = strings.Split(content, "\n")[3]
-	//fmt.Println(medic.Content)
-
 	//输出格式
 	fmt.Println("Success to get one result. :", medic.Id)
-	var contentDb = Content{MedicId:medic.Id, Type:medic.Type, Content:medic.Content, Page:medic.Page}
-	db.Table(resTableName).Create(&contentDb)
-	//fmt.Println(map[int]interface{}{
-	//	0: medic.Id,
-	//	1: medic.Type,
-	//	2: medic.Content,
-	//	3: medic.Page,
-	//})
+	var contentDb = Content{
+		Id:bson.NewObjectId(),
+		MedicId:medic.Id,
+		Type:medic.Type,
+		Content:medic.Content,
+		Page:medic.Page,
+	}
+	fmt.Println(contentDb)
+	database.SaveItems(&contentDb)
 }
 
-func getDetailInfo(ctx context.Context, db *gorm.DB, code string, medicId string, currentType string, pagePoint int) bool {
+func getDetailInfo(ctx context.Context, code string, medicId string, currentType string, pagePoint int) bool {
 	// eval the go Page js
 	if err := chromedp.Run(ctx, chromedp.Evaluate(code, new(string))); err != nil {
 	}
@@ -243,7 +246,7 @@ func getDetailInfo(ctx context.Context, db *gorm.DB, code string, medicId string
 		log.Printf("could not get content: %v", err)
 	}
 	//fmt.Println(content)
-	formatDetailInfo(db, content, medicId, currentType, pagePoint)
+	formatDetailInfo(content, medicId, currentType, pagePoint)
 
 	if err := chromedp.Run(ctx, chromedp.Evaluate(`viewList()`, new(string))); err != nil {
 	}
@@ -259,7 +262,7 @@ func getDetailInfo(ctx context.Context, db *gorm.DB, code string, medicId string
 	}
 }
 
-func getDetailContent(ctx context.Context, db *gorm.DB, idList [15]string) {
+func getDetailContent(ctx context.Context, idList [15]string) {
 	//content := make(map[string]string)
 	var contentList []map[string]string
 	if err := chromedp.Run(ctx, chromedp.AttributesAll(`#content a`, &contentList, chromedp.NodeVisible, chromedp.ByID, chromedp.ByQueryAll)); err != nil {
@@ -272,12 +275,12 @@ func getDetailContent(ctx context.Context, db *gorm.DB, idList [15]string) {
 	for index, value := range contentList {
 		//fmt.Println(value)
 		jsCode := strings.Split(value["href"], ":")[1]
-		getDetailInfo(ctx, db, jsCode, idList[index], currentType, currentPage)
+		getDetailInfo(ctx, jsCode, idList[index], currentType, currentPage)
 		time.Sleep(1 * time.Second)
 	}
 }
 
-func getContent(ctx context.Context, db *gorm.DB) {
+func getContent(ctx context.Context) {
 	var content string
 	if err := chromedp.Run(ctx, chromedp.Text(`#content`, &content, chromedp.NodeVisible, chromedp.ByID)); err != nil {
 		log.Printf("could not get content: %v", err)
@@ -293,39 +296,20 @@ func getContent(ctx context.Context, db *gorm.DB) {
 		idList[index] = s1[0]
 	}
 
-	getDetailContent(ctx, db, idList)
+	getDetailContent(ctx, idList)
 }
 
-func partitionTheTask(ctxt context.Context, baseUrl string, task *int) {
-	// open first page
-	openFirstPage(ctxt, baseUrl)
-	maxPage := getMaxPageNumber(ctxt)
-	pageType := getCurrentType(ctxt)
-	fmt.Printf("Ready for partition. %d page in %s.\n", maxPage, pageType)
-
-	//TODO, just for test. Delete when actual use.
-	maxPage = testMaxPage
-
-	startPage := 1
-	motherUrl := baseUrl
-	for startPage < maxPage {
-		sonPart := fmt.Sprintf("&startPage=%d&task=%d", startPage, *task)
-		sonUrl := motherUrl + sonPart
-		fmt.Println("Add url for MedicalList")
-		*task += 1
-		fmt.Println("partition url: ", sonUrl)
-
-		startPage += OnePartition
-	}
-}
-
-func startGet(sonUrl string, startPage int) {
+func startGet(sonUrl string, startPage int, pageMaxInt int) {
 	fmt.Printf("Start get from page %d in the %s.\n", startPage, sonUrl)
 
 	options := []chromedp.ExecAllocatorOption{
-		chromedp.Flag("headless", false),
+		chromedp.Flag("headless", true),
 		chromedp.Flag("hide-scrollbars", false),
 		chromedp.Flag("mute-audio", false),
+		chromedp.Flag("disable-gpu", true),
+		chromedp.Flag("enable-automation", false),
+		chromedp.Flag("restore-on-startup", false),
+		chromedp.WindowSize(1368, 768),
 		chromedp.UserAgent(`Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/80.0.3987.163 Chrome/80.0.3987.163 Safari/537.36`),
 		//chromedp.ProxyServer("http://127.0.0.1:8080"),
 	}
@@ -345,29 +329,16 @@ func startGet(sonUrl string, startPage int) {
 	// get start page
 	fmt.Println("Get start page: ", startPage)
 
-	// get the max page number
-	pageMaxInt := getMaxPageNumber(ctxt)
-	//fmt.Println(pageMaxInt)
-
-	// TODO, Delete this when actual use.
-	pageMaxInt = testMaxPage
-
 	if pageMaxInt > startPage + OnePartition - 1 {
 		pageMaxInt = startPage + OnePartition - 1
 	}
-
-	db, err := gorm.Open(dbType, dbUrl)
-	if err != nil {
-		panic("Failed to connect to database")
-	}
-	defer db.Close()
 
 	currentPage := startPage
 	for currentPage <= pageMaxInt {
 		resFlag := devPage(ctxt, currentPage)
 		if resFlag {
 			fmt.Printf("Success jump to page %d.[partition: %d]\n", currentPage, startPage/OnePartition)
-			getContent(ctxt, db)
+			getContent(ctxt)
 			time.Sleep(1 * time.Second)
 			currentPage += 1
 		}else {
@@ -380,7 +351,7 @@ func startGet(sonUrl string, startPage int) {
 
 }
 
-func partitionRequest(targetUrl string) {
+func partitionRequest(targetUrl string, maxPage int) {
 	options := []chromedp.ExecAllocatorOption{
 		chromedp.Flag("headless", true),
 		chromedp.Flag("hide-scrollbars", false),
@@ -402,38 +373,65 @@ func partitionRequest(targetUrl string) {
 
 	// open first page
 	openFirstPage(ctxt, targetUrl)
-	maxPage := getMaxPageNumber(ctxt)
+	// 取最大值
+	if maxPage == -1 {
+		maxPage = getMaxPageNumber(ctxt)
+	}
 	pageType := getCurrentType(ctxt)
 	fmt.Printf("Ready for partition. %d page in %s.\n", maxPage, pageType)
-
-	//TODO, just for test. Delete when actual use.
-	maxPage = testMaxPage
 
 	startPage := 1
 	for startPage <= maxPage {
 		// Start as Concurrent
-		startGet(targetUrl, startPage)
+		startGet(targetUrl, startPage, maxPage)
 
 		startPage += OnePartition
 	}
 }
 
-var taskId int
-var paraTableName, resTableName, dbType string
-var dbUrl string
-var dbUser, dbPassword, dbDatabase, dbChar, dbHost, dbPort string
+type Parameter struct {
+	Id              bson.ObjectId        `json:"_id" bson:"_id"`
+	TemplateId      int                  `json:"templateId" bson:"templateId"`
+	SpiderId        int                  `json:"spiderId" bson:"spiderId"`
+
+	HeadersList     []string             `json:"headersList" bson:"headersList"`
+	ParameterMap    map[string][]string  `json:"parameterMap" bson:"parameterMap"`
+}
 
 func main() {
-	// ./medicine -paras=go_para_000002
+	// GOOS=linux GOARCH=amd64 go build -o medicine_amd64
+	// GOOS=linux GOARCH=arm64 go build -o medicine_arm64
+	// ./medicine -paras=5ed9e77fa0a6cd055734386c
 
-	flag.StringVar(&paraTableName, "paras", "paras_id", "爬虫参数表id")
+	fmt.Println("Spider medicine info start...")
 
-	flag.Parse()
-	if flag.NFlag() < 1 {
-		fmt.Println(flag.NArg())
-		flag.Usage()
+	var cmd = new(config.CmdConfig)
+	err := cmd.ReadCmdParameter()
+	if err != nil {
+		fmt.Println(err)
+		debug.PrintStack()
 		return
 	}
+
+	// 初始化mongo
+	if err := database.InitMongo(); err != nil {
+		fmt.Println(err.Error())
+		fmt.Println("Failed to connect to mongo")
+	}
+
+	sess, col := database.GetCol("parameters")
+	defer sess.Close()
+
+	var mongoPara *Parameter
+	bson.ObjectIdHex(cmd.ParasTableId)
+	if err := col.Find(bson.M{"_id": bson.ObjectIdHex(cmd.ParasTableId)}).One(&mongoPara); err != nil {
+		fmt.Printf("get spider error: %s, _id: %s \n", err.Error(), cmd.ParasTableId)
+		debug.PrintStack()
+		return
+	}
+
+	keywords := mongoPara.ParameterMap["keyword"]
+	pages := mongoPara.ParameterMap["page"]
 
 	fmt.Println("Start get medicine info...")
 	table25 := table{"tableId": "25", "tableName": "TABLE25", "title": "国产药品", "bcId": "152904713761213296322795806604"}
@@ -442,9 +440,41 @@ func main() {
 	table34 := table{"tableId": "34", "tableName": "TABLE34", "title": "药品生产企业", "bcId": "152911762991938722993241728138"}
 	table138 := table{"tableId": "138", "tableName": "TABLE138", "title": "国家基本药物（2018年版）", "bcId": "152911951192978460689645865168"}
 
-	tableList := []table{table25, table32, table36, table34, table138}
+	tableMap := make(map[string]table)
+	tableMap["国产药品"] = table25
+	tableMap["国产药品商品名"] = table32
+	tableMap["进口药品"] = table36
+	tableMap["药品生产企业"] = table34
+	tableMap["国家基本药物"] = table138
 
-	for _, oneTable := range tableList {
+	var tableList []table
+	var pageList []int
+	// TODO, 合法性处理需要完善
+	for i, key := range keywords {
+		// 获取最大页数
+		pageStr := pages[i]
+		pageInt := MaxPage
+		if pageStr == "" {
+			pageInt = MaxPage
+		} else if pageStr == "max" || pageStr == "all" {
+			pageInt = -1
+		} else {
+			pageInt, err = strconv.Atoi(pageStr)
+			if err != nil {
+				fmt.Printf("The max page %s is not support, set as default[%d].", pageStr, MaxPage)
+			}
+		}
+		// 获取对应页面信息
+		tableTag, ok := tableMap[key]
+		if ! ok {
+			fmt.Printf("The keyword %s is not supoort.", key)
+			continue
+		}
+		pageList = append(pageList, pageInt)
+		tableList = append(tableList, tableTag)
+	}
+
+	for i, oneTable := range tableList {
 		fmt.Println(oneTable["title"])
 
 		v := url.Values{}
@@ -454,13 +484,13 @@ func main() {
 
 		u := &url.URL{
 			Scheme:   "http",
-			Host:     "qy1.sfda.gov.cn",
+			Host:     "app1.nmpa.gov.cn",
 			Path:     "datasearchcnda/face3/base.jsp",
 			RawQuery: v.Encode(),
 		}
 		searchUrl := u.String()
 		fmt.Println(searchUrl)
-		partitionRequest(searchUrl)
+		partitionRequest(searchUrl, pageList[i])
 	}
 }
 

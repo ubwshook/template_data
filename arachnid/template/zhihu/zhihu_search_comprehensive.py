@@ -1,5 +1,6 @@
-from pyppeteer import launcher
-launcher.AUTOMATION_ARGS.remove("--enable-automation")
+#from pyppeteer import launcher
+#launcher.DEFAULT_ARGS.remove("--enable-automation")
+#有头模式下可用上面方法绕过页面检测
 from pyppeteer import launch
 import re
 import argparse
@@ -7,6 +8,7 @@ import asyncio
 from bson import ObjectId
 from crawlab.db import db
 from crawlab import save_item
+import tkinter
 
 
 class ZhSearch:
@@ -16,6 +18,14 @@ class ZhSearch:
         self.para_col = "parameters"
         self.para_id = para_id
 
+    def screen_size(self):
+        """使用tkinter获取屏幕大小"""
+        tk = tkinter.Tk()
+        width = tk.winfo_screenwidth()
+        height = tk.winfo_screenheight()
+        tk.quit()
+        return width, height
+
     def get_parameter(self):
         '''
         mongo读取搜索关键字、id、url
@@ -23,14 +33,11 @@ class ZhSearch:
         '''
         col = self.db.get_collection(self.para_col)
         parameter = col.find_one({"_id": ObjectId(self.para_id)})
-        keywords = parameter["parameterMap"][parameter["headersList"][0]]
-        id_list = list()
-        keyword_list = list()
+        id_list = parameter["parameterMap"][parameter["headersList"][0]]
+        keyword_list = parameter["parameterMap"][parameter["headersList"][1]]
         url_list = list()
-        for i in keywords:
-            id_list.append(i.split(',')[0])
-            keyword_list.append(i.split(',')[1])
-            url_list.append(i.split(',')[2])
+        for i in keyword_list:
+            url_list.append('https://www.zhihu.com/search?type=content&q=' + i)
         return id_list,keyword_list,url_list
 
     def filter_emoji(self, desstr):
@@ -141,7 +148,7 @@ class ZhSearch:
         :return:
         '''
         print(id,keyword,url)
-        browser = await launch({'devtools': False,'headless': False,'dumpio': True, #'userDataDir': './userdata',
+        browser = await launch({'devtools': False,'headless': True,'dumpio': True, #'userDataDir': './userdata',
                                 'args': [
                                 '--disable-extensions',
                                 '--disable-bundled-ppapi-flash',
@@ -150,18 +157,31 @@ class ZhSearch:
                                 '--disable-setuid-sandbox',
                                 '--disable-infobars',
                             ]})
+        js = '''
+                            ()=>{
+                                const newProto = navigator.__proto__;
+                                delete newProto.webdriver;
+                                navigator.__proto__ = newProto;
+                            }
+                        '''
         page = await browser.newPage()
         await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                                 "(KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36")
+        #width, height = self.screen_size()
         await page.setViewport(viewport={'width': 1366, 'height': 768})
-        #await self.page_evaluate()
+        await page.setJavaScriptEnabled(enabled=True)
+        await page.setUserAgent(
+            'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36')
+        #执行js脚本，避免页面检测
+        await page.evaluateOnNewDocument(js)
         await page.goto(url, options={'timeout': 60000})
         print('--------------------' + str(id) + '开始抓取综合信息--------------------')
         await self.get_comprehensive(page,id)
+        await page.close()
 
     def run(self):
         id_list,keyword_list,url_list = self.get_parameter()
-        tasks = [self.get_contents(id_list[n],keyword_list[n],url_list[n]) for n in range(1,len(id_list))]
+        tasks = [self.get_contents(id_list[n],keyword_list[n],url_list[n]) for n in range(0,len(id_list))]
         loop = asyncio.get_event_loop()
         loop.run_until_complete(asyncio.gather(*tasks))
 

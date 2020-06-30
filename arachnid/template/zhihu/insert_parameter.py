@@ -32,7 +32,9 @@ def modify_csv_list(paras_list):
         header_list.append(head)
         header_dict.update({head: []})
 
-    for row in paras_list:
+    for j, row in enumerate(paras_list):
+        if j == 0:
+            continue
         for i, line in enumerate(row):
             header_dict[header_list[i]].append(line)
 

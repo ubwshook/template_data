@@ -34,7 +34,7 @@ class TtSearch(object):
     def get_parameter(self):
         col = self.db.get_collection(self.para_col)
         parameter = col.find_one({"_id": ObjectId(self.para_id)})
-        self.keyword_list = parameter["parameterMap"][parameter["headersList"][0]]
+        self.keyword_list = parameter["parameterMap"][parameter["headersList"][1]]
 
     def filter_emoji(self,desstr):
         '''
@@ -51,7 +51,7 @@ class TtSearch(object):
     def make_url_info(self, keyword_):
         keyword = quote(keyword_)
         url = 'https://www.toutiao.com/api/search/content/?aid=24&app_name=web_search&offset=0&format=json&keyword=' \
-              '{keyword}&autoload=true&count=20&en_qc=1&cur_tab=1&from=search_tab&pd=synthesis&timestamp='.format(
+              '{keyword}&autoload=true&count=20&en_qc=1&cur_tab=1&from=search_tab&pd=synthesis'.format(
             keyword=keyword)
         url_info = {
             'keyword': keyword,
@@ -108,7 +108,7 @@ class TtSearch(object):
             return list()
         keyword = url_info['keyword']
         for offset in range(20, page_num + 1, 20):
-            new_url = 'https://www.toutiao.com/api/search/content/?aid=24&app_name=web_search&offset={offset}&format=json&keyword={keyword}&autoload=true&count=20&en_qc=1&cur_tab=1&from=search_tab&pd=synthesis&timestamp='.format(
+            new_url = 'https://www.toutiao.com/api/search/content/?aid=24&app_name=web_search&offset={offset}&format=json&keyword={keyword}&autoload=true&count=20&en_qc=1&cur_tab=1&from=search_tab&pd=synthesis'.format(
                 offset=offset, keyword=keyword)
             url_info = {
                 'keyword': keyword,

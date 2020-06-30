@@ -2,6 +2,7 @@ from crawlab.db import db
 from pyppeteer import launch
 import datetime
 import asyncio
+import logging
 
 
 class Cookies:
@@ -34,6 +35,7 @@ class Cookies:
         browser = await launch(
             {'headless': True,
              'dumpio': True,
+             'logLevel': logging.WARNING,
              #'userDataDir': './userdata',
              'args': [
                                 '--disable-extensions',
@@ -46,6 +48,9 @@ class Cookies:
              }
         )
         page = await browser.newPage()
+        #await page.setViewport(viewport={'width': 1366, 'height': 768})
+        await page.setUserAgent(
+            'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36')
         await page.goto('https://www.toutiao.com/')
         await asyncio.sleep(3)
         more_cookies = list()
@@ -55,7 +60,7 @@ class Cookies:
             cookies = await page.cookies()
             cookie_list = list()
             cookie_names = ['tt_webid','__tasessionId','s_v_web_id','ttcid','WEATHER_CITY','SLARDAR_WEB_ID','tt_webid','csrftoken','tt_scid','']
-            [cookie_list.append(i['name'] + '=' + i['value']) for i in cookies if i['value'] in cookie_names]
+            [cookie_list.append(i['name'] + '=' + i['value']) for i in cookies if i['name'] in cookie_names]
             cookie = ';'.join(cookie_list)
             more_cookies.append(cookie)
             print(cookie)

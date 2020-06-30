@@ -12,7 +12,7 @@ from crawlab import save_item
 from crawl import Crawler
 
 
-class BaiduNewsSpider(object):
+class YywSearchSpider(object):
     para_col = "parameters"
 
     def __init__(self, para_id):
@@ -35,17 +35,14 @@ class BaiduNewsSpider(object):
         parameter = col.find_one({"_id": ObjectId(self.para_id)})
 
         self.keyword_list = parameter["parameterMap"][parameter["headersList"][0]]
-        self.page_list = parameter["parameterMap"][parameter["headersList"][1]]
 
-    def make_url_info(self, keyword, total_page):
-        quote_keyword = quote(keyword)
-        url = 'https://www.baidu.com/s?rtt=1&bsst=1&cl=2&tn=news&fr=image&ie=utf-8&word={keyword}'.format(keyword=quote_keyword)
+    def make_url_info(self, keyword):
+        url = 'https://www.111.com.cn/search/search.action?keyWord={}'.format(quote(quote(keyword)))
         url_info = {
             'keyword': keyword,
             'url': url,
             'page': 1,
             'is_generate': True,
-            'total_page': total_page
         }
 
         self.url_queue.put(url_info)
@@ -54,29 +51,39 @@ class BaiduNewsSpider(object):
         soup = bs4.BeautifulSoup(html, 'lxml')
 
         generate_info = {}
-        item_info = dict()
-        item_list = list()
-        results = soup.find('div', attrs={"id": "content_left"}).find_all('div', attrs={'class': 'result'})
-        for result in results:
-            try:
-                item_info['title'] = result.h3.text.strip()
-                tmp = result.find("p", attrs={'class': "c-author"}).text.strip().split(" ")
-                item_info['author'] = tmp[0].replace("\xa0\xa0", "")
-                item_info['time'] = result.find("p", attrs={'class': "c-author"}).text.strip().split("\t\t\t\t\n\t\t\t\t\t\t")[-1]
-                item_info['href'] = result.h3.a.attrs['href']
-                item_info['keyword'] = url_info['keyword']
-                item_list.append(item_info)
-            except Exception as e:
-                print("页面解析出错： error={}", str(e))
+        try:
+            total = re.search(r'共(.*)页', soup.find('span', attrs={"class": 'pageOp'}).text).group(1)
+            total = int(total)
+        except Exception as e:
+            total = 1
 
-        return item_list, generate_info
+        generate_info['total'] = total
+
+        products = soup.find_all('li', attrs={'id': re.compile(r'producteg_.*?')})
+        data_list = list()
+        time.sleep(2)
+        for product in products:
+            try:
+                item_info = dict()
+                item_info['price'] = product.find('p', attrs={'class': 'price'}).text.strip()
+                item_info['itemId'] = product.find('div', attrs={'class': 'itemSearchResultCon'}).attrs['itemid']
+                item_info['title'] = product.find('p', attrs={'class': 'titleBox'}).text.strip()
+                item_info['keyword'] = url_info['keyword']
+                try:
+                    item_info['review_count'] = product.find('em').text.strip()
+                except:
+                    pass
+                data_list.append(item_info)
+            except Exception as e:
+                print("字段解析错误： " + str(e))
+
+        return data_list, generate_info
 
     def generate_page(self, url_info, generate_info):
-        total_page = url_info['total_page']
+        total_page = generate_info['total']
         keyword = quote(url_info['keyword'])
-        for p in range(2, int(total_page) + 1):
-            new_url = 'https://www.baidu.com/s?rtt=1&bsst=1&cl=2&tn=news&fr=image&ie=utf-8&word={keyword}&pn={page}'.format(
-                keyword=keyword, page=str(p * 10))
+        for p in range(2, total_page + 1):
+            new_url = 'https://www.111.com.cn/search/search.action?keyWord={}&gotoPage={}'.format(quote(quote(keyword)), p)
             url_info = {
                 'keyword': url_info['keyword'],
                 'url': new_url,
@@ -97,8 +104,8 @@ class BaiduNewsSpider(object):
         self.get_parameter()
         print(self.keyword_list)
 
-        for index, keyword in enumerate(self.keyword_list):
-            self.make_url_info(keyword, self.page_list[index])
+        for keyword in self.keyword_list:
+            self.make_url_info(keyword)
 
         crawlers = [self.Crawler(self.url_queue, self.page_parse, self.save_data, self.generate_page) for _ in
                     range(0, self.coro_num)]
@@ -118,5 +125,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
     parameter_id = args.para
 
-    spider = BaiduNewsSpider(parameter_id)
+    spider = YywSearchSpider(parameter_id)
     spider.start()
+
+
+
+
