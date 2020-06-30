@@ -176,7 +176,7 @@
     "websiteName": "后知气象",
     "categoryId": 9,
     "categoryName": "实用工具",
-    "isNeedParas": true,
+    "isNeedParas": false,
     "isBinary": false,
     "src": "arachnid/template/houzhi_weather/",
     "cmd": "python houzhi_weatherdata_spider.py --para=%s"
