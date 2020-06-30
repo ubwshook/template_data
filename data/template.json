@@ -107,14 +107,40 @@
     "templateId": 9,
     "templateName": "国家统计局-月度数据",
     "templateEnName": "stats_monthlydata_spider",
-    "websiteId": 30,
-    "websiteName": "新浪微博",
-    "categoryId": 1,
-    "categoryName": "新闻门户",
+    "websiteId": 31,
+    "websiteName": "国家统计局官网",
+    "categoryId": 7,
+    "categoryName": "政府发布",
     "isNeedParas": false,
     "isBinary": false,
-    "src": "arachnid/template/weibo_hotlist/",
-    "cmd": "python weibo_hotlist_spider.py --para=%s"
+    "src": "arachnid/template/stats_monthlydata",
+    "cmd": "python stats_monthlydata_spider.py --para=%s"
+  },
+  {
+    "templateId": 10,
+    "templateName": "国家药品监督管理局-药品数据(Go语言+chromedp版)",
+    "templateEnName": "medicine_go",
+    "websiteId": 13,
+    "websiteName": "国家药监局",
+    "categoryId": 7,
+    "categoryName": "政府发布",
+    "isNeedParas": true,
+    "isBinary": true,
+    "src": "arachnid/go/medicine/",
+    "cmd": "./medicine_%s -paras=%s"
+  },
+  {
+    "templateId": 11,
+    "templateName": "壹药网关键字搜索",
+    "templateEnName": "yyw_search",
+    "websiteId": 16,
+    "websiteName": "医药网",
+    "categoryId": 3,
+    "categoryName": "电商平台",
+    "isNeedParas": true,
+    "isBinary": false,
+    "src": "arachnid/template/yyw/",
+    "cmd": "python yyw_search.py --para=%s"
   },
   {
     "templateId": 12,
@@ -128,5 +154,31 @@
     "isBinary": false,
     "src": "arachnid/template/baidu/",
     "cmd": "python baidu_news.py --para=%s"
+  },
+  {
+    "templateId": 13,
+    "templateName": "链家国内城市二手房数据",
+    "templateEnName": "lianjia_esf",
+    "websiteId": 5,
+    "websiteName": "链家",
+    "categoryId": 2,
+    "categoryName": "行业资讯",
+    "isNeedParas": true,
+    "isBinary": false,
+    "src": "arachnid/template/lianjia/",
+    "cmd": "python lianjia_esf.py --para=%s"
+  },
+  {
+    "templateId": 14,
+    "templateName": "后知城市天气数据爬虫",
+    "templateEnName": "houzhi_weatherdata_spider",
+    "websiteId": 32,
+    "websiteName": "后知气象",
+    "categoryId": 9,
+    "categoryName": "实用工具",
+    "isNeedParas": true,
+    "isBinary": false,
+    "src": "arachnid/template/houzhi_weather/",
+    "cmd": "python houzhi_weatherdata_spider.py --para=%s"
   }
 ]

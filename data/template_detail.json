@@ -1299,20 +1299,18 @@
             "subTabName": "参数样例",
             "contentType": "table",
             "headers": {
+              "id": "id",
               "keyword": "关键字"
             },
             "data": [
               { "id": "1",
-                "keyword": "腾讯",
-                "search_url": "https://www.zhihu.com/search?type=content&q=%E8%85%BE%E8%AE%AF"
+                "keyword": "腾讯"
               },
               { "id": "2",
-                "keyword": "网易",
-                "search_url": "https://www.zhihu.com/search?type=content&q=%E7%BD%91%E6%98%93"
+                "keyword": "网易"
               },
               { "id": "3",
-                "keyword": "华为",
-                "search_url": "https://www.zhihu.com/search?type=content&q=%E5%8D%8E%E4%B8%BA"
+                "keyword": "华为"
               }
             ]
           }
@@ -1371,6 +1369,11 @@
         "contentType": "tabs",
         "subTabs": [
           {
+            "subTabName": "数据时段",
+            "contentType": "string",
+            "description": "数据时段(月度，季度，年度)"
+          },
+          {
             "subTabName": "表名称",
             "contentType": "string",
             "description": "统计表名称"
@@ -1419,6 +1422,7 @@
         "tabName": "数据样例",
         "contentType": "table",
         "headers": {
+          "data_time": "数据时段",
           "table_name": "表名称",
           "valuecode": "行名称",
           "time_title": "列时间",
@@ -1426,40 +1430,264 @@
         },
         "data": [
           {
+            "data_time": "月度数据",
             "table_name" : "价格指数&居民消费价格分类指数(上年同月=100)&全国居民消费价格分类指数(上年同月=100)(2016-)",
             "valuecode" : "居民消费价格指数(上年同月=100)",
             "time_title" : "202005",
             "data_num" : "102.43772471"
           },
           {
+            "data_time": "月度数据",
             "table_name" : "价格指数&居民消费价格分类指数(上年同月=100)&全国居民消费价格分类指数(上年同月=100)(2016-)",
             "valuecode" : "居民消费价格指数(上年同月=100)",
             "time_title" : "202004",
             "data_num" : "103.29199133"
           },
           {
+            "data_time": "月度数据",
             "table_name" : "价格指数&居民消费价格分类指数(上年同月=100)&全国居民消费价格分类指数(上年同月=100)(2016-)",
             "valuecode" : "居民消费价格指数(上年同月=100)",
             "time_title" : "202003",
             "data_num" : "104.27006363"
           },
           {
+            "data_time": "月度数据",
             "table_name" : "价格指数&居民消费价格分类指数(上年同月=100)&全国居民消费价格分类指数(上年同月=100)(2016-)",
             "valuecode" : "居民消费价格指数(上年同月=100)",
             "time_title" : "202001",
             "data_num" : "105.38456885"
           },
           {
+            "data_time": "月度数据",
             "table_name" : "价格指数&居民消费价格分类指数(上年同月=100)&全国居民消费价格分类指数(上年同月=100)(2016-)",
             "valuecode" : "食品烟酒类居民消费价格指数(上年同月=100)",
             "time_title" : "202004",
             "data_num" : "111.25969302"
           },
           {
+            "data_time": "月度数据",
             "table_name" : "价格指数&居民消费价格分类指数(上年同月=100)&全国居民消费价格分类指数(上年同月=100)(2016-)",
             "valuecode" : "食品烟酒类居民消费价格指数(上年同月=100)",
             "time_title" : "202003",
             "data_num" : "113.59269936"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "templateId": 10,
+    "tabs": [
+      {
+        "tabName": "模板介绍",
+        "contentType": "string",
+        "description": "此模板用于采集国家药品监督管理局-药品信息"
+      },
+      {
+        "tabName": "字段预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "ID",
+            "contentType": "string",
+            "description": "药品或药品企业ID"
+          },
+          {
+            "subTabName": "药品类型",
+            "contentType": "string",
+            "description": "药品或药品企业类型"
+          },
+          {
+            "subTabName": "详细信息",
+            "contentType": "string",
+            "description": "药品或药品企业详细信息"
+          },
+          {
+            "subTabName": "页码",
+            "contentType": "string",
+            "description": "数据页码"
+          }
+        ]
+      },
+      {
+        "tabName": "采集参数预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "关键字",
+            "contentType": "string",
+            "description": "药品类型关键字"
+          },
+          {
+            "subTabName": "参数样例",
+            "contentType": "table",
+            "headers": {
+              "keyword": "关键字",
+              "page": "最大页数"
+            },
+            "data": [
+              { "keyword": "国产药品",
+                "page": "15"
+              },
+              { "keyword": "国产药品商品名",
+                "page": "5"
+              },
+              { "keyword": "进口药品",
+                "page": "max"
+              },
+              { "keyword": "药品生产企业",
+                "page": "all"
+              },
+              { "keyword": "国家基本药物",
+                "page": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tabName": "数据样例",
+        "contentType": "table",
+        "headers": {
+          "medic_id": "ID",
+          "type": "药品类型",
+          "content": "详细信息",
+          "page": "页码"
+        },
+        "data": [
+          {
+            "medic_id" : "1",
+            "type" : "国产药品商品名",
+            "content" : "国产药品商品名\n\n批准文号\t国药准字H20051833\n批准文号备注\t\n产品名称\t甲磺酸瑞波西汀片\n英文名称\tReboxetine Mesylate Tablets\n商品名\t叶洛抒\n生产单位\t重庆药友制药有限责任公司\n规格\t4mg(以C19H23NO3计)\n剂型\t片剂\n产品类别\t化学药品\n批准日期\t2020-08-30\n原批准文号\t\n药品本位码\t86901066000877\n药品本位码备注\t\n生产地址\t重庆市渝北区人和镇星光大道100号\n相关数据库查询\t药品广告\n中药保护品种库\n\n\t",
+            "page" : "1"
+          },
+          {
+            "medic_id" : "2",
+            "type" : "国产药品商品名",
+            "content" : "国产药品商品名\n\n批准文号\t国药准字H20051949\n批准文号备注\t\n产品名称\t萘替芬酮康唑乳膏\n英文名称\tNaftifine Hydrochloride and Ketoconazole Cream\n商品名\t必亮\n生产单位\t重庆华邦制药有限公司\n规格\t10g:盐酸萘替芬0.1g与酮康唑25mg、15g:盐酸萘替芬0.15g与酮康唑37.5mg\n剂型\t乳膏剂\n产品类别\t化学药品\n批准日期\t2020-07-12\n原批准文号\t\n药品本位码\t86901003000755；86901003000854\n药品本位码备注\t86901003000755[15g:盐酸萘替芬0.15g与酮康唑37.5mg]；86901003000854[10g:盐酸萘替芬0.1g与酮康唑25mg]\n生产地址\t重庆市渝北区人和星光大道69号\n相关数据库查询\t药品广告\n中药保护品种库\n\n\t",
+            "page" : "1"
+          },
+          {
+            "medic_id" : "3",
+            "type" : "国产药品商品名",
+            "content" : "国产药品商品名\n\n批准文号\t国药准字S20200013\n批准文号备注\t\n产品名称\t贝伐珠单抗注射液\n英文名称\tBevacizumab Injection\n商品名\t达攸同\n生产单位\t信达生物制药(苏州)有限公司\n规格\t4ml:100mg\n剂型\t注射剂\n产品类别\t生物制品\n批准日期\t2020-06-17\n原批准文号\t\n药品本位码\t86981451000026\n药品本位码备注\t\n生产地址\t苏州工业园区东平街168号\n相关数据库查询\t药品广告\n中药保护品种库\n\n\t",
+            "page" : "1"
+          },
+          {
+            "medic_id" : "1",
+            "type" : "进口药品",
+            "content" : "进口药品\n\n注册证号\tH20200018\n原注册证号\t\n注册证号备注\t\n分包装批准文号\t\n公司名称（中文）\t\n公司名称（英文）\tLuye Pharma AG\n地址（中文）\t\n地址（英文）\tAm Windfeld 35, 83714 Miesbach\n国家/地区（中文）\t德国\n国家/地区（英文）\tGermany\n产品名称（中文）\t利斯的明透皮贴剂\n产品名称（英文）\tRivastigmine Transdermal Patch\n商品名（中文）\t\n商品名（英文）\t\n剂型（中文）\t贴剂\n规格（中文）\t4.6mg/24小时\n包装规格（中文）\t7贴/盒，30贴/盒\n生产厂商（中文）\t\n生产厂商（英文）\tLuye Pharma AG\n厂商地址（中文）\t\n厂商地址（英文）\tAm Windfeld 35, 83714 Miesbach\n厂商国家/地区（中文）\t德国\n厂商国家/地区（英文）\tGermany\n发证日期\t2020-06-02\n有效期截止日\t2025-06-01\n分包装企业名称\t\n分包装企业地址\t\n分包装文号批准日期\t\n分包装文号有效期截止日\t\n产品类别\t化学药品\n药品本位码\t86982971000015\n药品本位码备注\t\n相关数据库查询\t药品广告\n药品行政保护库\n\n\t\n注\t说明 ：\n　　企业用户如对药品数据信息有疑问，请及时与我局信息中心数据整理组联系，来电前请备好相应的批件证明材料以备工作人员查询。电话：63923255（工作日）；企业用户也可通过发邮件与我们联系：邮件地址yaopinshuju@nmpaic.org.cn，邮件主题请注明“药品批件问题”，邮件正文中请准确填写以下全部信息：1.药品批准文号/注册证号；2.药品批件号；3.药品批件类型（注册批件、补充批件、包材注册证、药品标准颁布件、再注册批件、其他）；4.问题描述（500字以内）；5.企业名称（全称）；6.统一社会信用代码；7.联系人姓名；8.联系电话（手机和座机）；9.电子邮件。以上内容请勿直接以电子邮件附件形式发送。如有批件证明材料，请传真至010-63923254（传真），并在传真件上方留下联系方式。",
+            "page" : "1"
+          },
+          {
+            "medic_id" : "2",
+            "type" : "进口药品",
+            "content" : "进口药品\n\n注册证号\tS20200010\n原注册证号\t\n注册证号备注\t\n分包装批准文号\t\n公司名称（中文）\t\n公司名称（英文）\tGenzyme Europe B.V.\n地址（中文）\t\n地址（英文）\tPaasheuvelweg 25, 1105 BP Amsterdam, The Netherlands\n国家/地区（中文）\t荷兰\n国家/地区（英文）\tThe Netherlands\n产品名称（中文）\t注射用拉罗尼酶浓溶液\n产品名称（英文）\tLaronidase concentrate for solution for infusion\n商品名（中文）\t艾而赞\n商品名（英文）\tAldurazyme\n剂型（中文）\t注射剂\n规格（中文）\t500U(5ml)/瓶\n包装规格（中文）\t5ml/瓶，1瓶/盒\n生产厂商（中文）\t\n生产厂商（英文）\tVetter Pharma-Fertigung GmbH & Co. KG\n厂商地址（中文）\t\n厂商地址（英文）\tEisenbahnstrasse 2-4, 88085 Langenargen, Germany\n厂商国家/地区（中文）\t德国\n厂商国家/地区（英文）\tGermany\n发证日期\t2020-06-02\n有效期截止日\t2025-06-01\n分包装企业名称\t\n分包装企业地址\t\n分包装文号批准日期\t\n分包装文号有效期截止日\t\n产品类别\t生物制品\n药品本位码\t86978450000386\n药品本位码备注\t\n相关数据库查询\t药品广告\n药品行政保护库\n\n\t\n注\t说明 ：\n　　企业用户如对药品数据信息有疑问，请及时与我局信息中心数据整理组联系，来电前请备好相应的批件证明材料以备工作人员查询。电话：63923255（工作日）；企业用户也可通过发邮件与我们联系：邮件地址yaopinshuju@nmpaic.org.cn，邮件主题请注明“药品批件问题”，邮件正文中请准确填写以下全部信息：1.药品批准文号/注册证号；2.药品批件号；3.药品批件类型（注册批件、补充批件、包材注册证、药品标准颁布件、再注册批件、其他）；4.问题描述（500字以内）；5.企业名称（全称）；6.统一社会信用代码；7.联系人姓名；8.联系电话（手机和座机）；9.电子邮件。以上内容请勿直接以电子邮件附件形式发送。如有批件证明材料，请传真至010-63923254（传真），并在传真件上方留下联系方式。",
+            "page" : "1"
+          },
+          {
+            "medic_id" : "3",
+            "type" : "进口药品",
+            "content" : "进口药品\n\n注册证号\tS20200009\n原注册证号\t\n注册证号备注\t\n分包装批准文号\t\n公司名称（中文）\t\n公司名称（英文）\tDiaSorin S.p.A. UK Branch\n地址（中文）\t\n地址（英文）\tCentral Road, Dartford, DA1 5LR, UNITED KINGDOM\n国家/地区（中文）\t英国\n国家/地区（英文）\tUNITED KINGDOM\n产品名称（中文）\t丙型肝炎病毒抗体检测试剂盒(酶联免疫法)\n产品名称（英文）\tDiagnostic Kit for Antibody to Hepatitis C Virus (Elisa)\n商品名（中文）\t\n商品名（英文）\t\n剂型（中文）\t体外诊断试剂\n规格（中文）\t480人份/盒\n包装规格（中文）\t480人份/盒\n生产厂商（中文）\t\n生产厂商（英文）\tDiaSorin S.p.A. UK Branch\n厂商地址（中文）\t\n厂商地址（英文）\tCentral Road, Dartford, DA1 5LR, UNITED KINGDOM\n厂商国家/地区（中文）\t英国\n厂商国家/地区（英文）\tUNITED KINGDOM\n发证日期\t2020-06-02\n有效期截止日\t2025-06-01\n分包装企业名称\t\n分包装企业地址\t\n分包装文号批准日期\t\n分包装文号有效期截止日\t\n产品类别\t生物制品\n药品本位码\t86978656000128\n药品本位码备注\t\n相关数据库查询\t药品广告\n药品行政保护库\n\n\t\n注\t说明 ：\n　　企业用户如对药品数据信息有疑问，请及时与我局信息中心数据整理组联系，来电前请备好相应的批件证明材料以备工作人员查询。电话：63923255（工作日）；企业用户也可通过发邮件与我们联系：邮件地址yaopinshuju@nmpaic.org.cn，邮件主题请注明“药品批件问题”，邮件正文中请准确填写以下全部信息：1.药品批准文号/注册证号；2.药品批件号；3.药品批件类型（注册批件、补充批件、包材注册证、药品标准颁布件、再注册批件、其他）；4.问题描述（500字以内）；5.企业名称（全称）；6.统一社会信用代码；7.联系人姓名；8.联系电话（手机和座机）；9.电子邮件。以上内容请勿直接以电子邮件附件形式发送。如有批件证明材料，请传真至010-63923254（传真），并在传真件上方留下联系方式。",
+            "page" : "1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "templateId": 11,
+    "tabs": [
+      {
+        "tabName": "模板介绍",
+        "contentType": "string",
+        "description": "此模板用于采集医药网搜索结果药品列表内容"
+      },
+      {
+        "tabName": "字段预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "标题",
+            "contentType": "string",
+            "description": "药品或医疗器械的标题"
+          },
+          {
+            "subTabName": "商品ID",
+            "contentType": "string",
+            "description": "药品或医疗器械的唯一标识"
+          },
+          {
+            "subTabName": "价格",
+            "contentType": "string",
+            "description": "药品或医疗器械的价格"
+          },
+          {
+            "subTabName": "评论数目",
+            "contentType": "string",
+            "description": "药品的评论个数"
+          }
+        ]
+      },
+      {
+        "tabName": "采集参数预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "关键字",
+            "contentType": "string",
+            "description": "商品搜索的关键字"
+          },
+          {
+            "subTabName": "参数样例",
+            "contentType": "table",
+            "headers": {
+              "keyword": "关键字"
+            },
+            "data": [
+              {
+                "keyword": "血压"
+              },
+              {
+                "keyword": "颈椎"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tabName": "数据样例",
+        "contentType": "table",
+        "headers": {
+          "title": "标题",
+          "itemId": "商品ID",
+          "price": "价格",
+          "review_count": "评论数目"
+        },
+        "data": [
+          {
+            "title" : "【买3赠1】同仁堂 云南文山三七粉 1g*20袋【一次1-2克吞服，外用适量】一克精华装 服用方便\n买3赠1",
+            "itemId" : "50347868",
+            "price" : "48.0",
+            "review_count" : "1782"
+          },
+          {
+            "title" : "金奥力 鱼油软胶囊 100粒 深海鱼油  可搭配磷脂",
+            "itemId" : "51220470",
+            "price" : "39.0",
+            "review_count" : "1240"
+          },
+          {
+            "title" : "舒尔佳 奥利司他胶囊 60mg*24粒/盒",
+            "itemId" : "51235246",
+            "price" : "99.0",
+            "review_count" : "958"
+          },
+          {
+            "title" : "汤臣倍健 鱼油软胶囊 1000mg*100粒【每日2次，每次1粒,随餐服用】保健功能：辅助降血脂，适宜血脂偏高者食用\n买1赠1",
+            "itemId" : "4471619",
+            "price" : "92.0",
+            "review_count" : "3147"
           }
         ]
       }
@@ -1572,6 +1800,397 @@
             "author" : "腾讯新闻",
             "time" : "2020年06月22日 00:00",
             "href" : "https://new.qq.com/omn/20200622/20200622A0IERB00.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "templateId": 13,
+    "tabs": [
+        {
+            "tabName": "模板介绍",
+            "contentType": "string",
+            "description": "此模板用于采集链家网国内城市二手房数据"
+        },
+        {
+            "tabName": "字段预览",
+            "contentType": "tabs",
+            "subTabs": [
+                {
+                    "subTabName": "城市",
+                    "contentType": "string",
+                    "description": "二手房所在城市"
+                },
+                {
+                    "subTabName": "区域",
+                    "contentType": "string",
+                    "description": "城市下属区域"
+                },
+                {
+                    "subTabName": "标题",
+                    "contentType": "string",
+                    "description": "二手房标题"
+                },
+                {
+                    "subTabName": "链接",
+                    "contentType": "string",
+                    "description": "二手房链接"
+                },
+                {
+                    "subTabName": "地址",
+                    "contentType": "string",
+                    "description": "二手房地址"
+                },
+                {
+                    "subTabName": "简介",
+                    "contentType": "string",
+                    "description": "二手房简介"
+                },
+                {
+                    "subTabName": "关注数、发布时间",
+                    "contentType": "string",
+                    "description": "二手房关注数、发布时间"
+                },
+                {
+                    "subTabName": "标签",
+                    "contentType": "string",
+                    "description": "二手房额外描述"
+                },
+                {
+                    "subTabName": "总价",
+                    "contentType": "string",
+                    "description": "二手房总价"
+                },
+                {
+                    "subTabName": "单价",
+                    "contentType": "string",
+                    "description": "二手房单价"
+                }
+            ]
+        },
+        {
+            "tabName": "采集参数预览",
+            "contentType": "tabs",
+            "subTabs": [
+                {
+                    "subTabName": "城市名",
+                    "contentType": "string",
+                    "description": "需要采集数据的城市列表"
+                },
+              {
+            "subTabName": "参数样例",
+            "contentType": "table",
+            "headers": {
+              "city": "城市"
+            },
+            "data": [
+              {
+                "city": "江门"
+              },
+              {
+                "city": "滁州"
+              },
+              {
+                "city": "湛江"
+              },
+              {
+                "city": "防城港"
+              }
+            ]
+          }
+            ]
+        },
+        {
+            "tabName": "数据样例",
+            "contentType": "table",
+            "headers": {
+                "city": "城市",
+                "region": "区域",
+                "title": "标题",
+                "link": "链接",
+                "location": "地址",
+                "information": "简介",
+                "followinfo": "关注数、发布时间",
+                "label": "标签",
+                "totalprice": "总价",
+                "unitprice": "单价"
+            },
+            "data": [
+                {
+                    "city": "安庆",
+                    "region": "菱北",
+                    "title": "西湖绿洲城五期 2室2厅 75万",
+                    "link": "https://aq.lianjia.com/ershoufang/103109327177.html",
+                    "location": "西湖绿洲城五期 ",
+                    "information": "2室2厅 | 82.45平米 | 南 北 | 精装 | 低楼层(共12层)  | 板楼",
+                    "followinfo": "1人关注 / 19天以前发布",
+                    "label": "VR房源 随时看房",
+                    "totalprice": "75万",
+                    "unitprice": "单价9097元/平米"
+                },
+                {
+                    "city": "安庆",
+                    "region": "菱北",
+                    "title": "车务段 2室2厅 63万",
+                    "link": "https://aq.lianjia.com/ershoufang/103109328237.html",
+                    "location": "车务段 ",
+                    "information": "2室2厅 | 79.5平米 | 南 北 | 其他 | 中楼层(共6层)  | 板楼",
+                    "followinfo": "1人关注 / 19天以前发布",
+                    "label": "随时看房",
+                    "totalprice": "63万",
+                    "unitprice": "单价7925元/平米"
+                },
+                {
+                    "city": "安庆",
+                    "region": "菱北",
+                    "title": "菱建小区 3室1厅 57.8万",
+                    "link": "https://aq.lianjia.com/ershoufang/103109333064.html",
+                    "location": "菱建小区 ",
+                    "information": "3室1厅 | 95平米 | 南 | 其他 | 高楼层(共6层)  | 板楼",
+                    "followinfo": "4人关注 / 19天以前发布",
+                    "label": "VR房源",
+                    "totalprice": "57.8万",
+                    "unitprice": "单价6085元/平米"
+                }
+            ]
+        }
+    ]
+},
+  {
+    "templateId": 14,
+    "tabs": [
+      {
+        "tabName": "模板介绍",
+        "contentType": "string",
+        "description": "此模板用于采集后知气象城市天气数据"
+      },
+      {
+        "tabName": "字段预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "降水概率",
+            "contentType": "string",
+            "description": "降水概率百分比"
+          },
+          {
+            "subTabName": "气压",
+            "contentType": "string",
+            "description": "当地大气压强"
+          },
+          {
+            "subTabName": "星期",
+            "contentType": "string",
+            "description": "星期"
+          },
+          {
+            "subTabName": "夜间风向",
+            "contentType": "string",
+            "description": "夜间风向"
+          },
+          {
+            "subTabName": "夜间温度",
+            "contentType": "string",
+            "description": "夜间温度"
+          },
+          {
+            "subTabName": "夜间天气",
+            "contentType": "string",
+            "description": "夜间天气"
+          },
+          {
+            "subTabName": "紫外线强度",
+            "contentType": "string",
+            "description": "紫外线强度"
+          },
+          {
+            "subTabName": "白日天气",
+            "contentType": "string",
+            "description": "白日天气"
+          },
+          {
+            "subTabName": "白日风力",
+            "contentType": "string",
+            "description": "白日风力"
+          },
+          {
+            "subTabName": "白日温度",
+            "contentType": "string",
+            "description": "白日温度"
+          },
+          {
+            "subTabName": "白日风力",
+            "contentType": "string",
+            "description": "白日风力"
+          },
+          {
+            "subTabName": "夜间风力",
+            "contentType": "string",
+            "description": "夜间风力"
+          },
+          {
+            "subTabName": "日出日落时分",
+            "contentType": "string",
+            "description": "日出日落时分"
+          },
+          {
+            "subTabName": "日期",
+            "contentType": "string",
+            "description": "日期"
+          },
+          {
+            "subTabName": "省市地区",
+            "contentType": "string",
+            "description": "省市地区"
+          }
+        ]
+      },
+      {
+        "tabName": "采集参数预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "",
+            "contentType": "string",
+            "description": ""
+          },
+          {
+            "subTabName": "",
+            "contentType": "table",
+            "headers": {
+              "keyword": ""
+            },
+            "data": [
+              {
+                "keyword": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tabName": "数据样例",
+        "contentType": "table",
+        "headers": {
+          "jiangshui" : "降水概率",
+          "air_press" : "气压",
+          "weekday" : "星期",
+          "night_wind_direction" : "夜间风向",
+          "night_air_temperature" : "夜间温度",
+          "night_weather" : "夜间天气",
+          "ziwaixian" : "紫外线强度",
+          "day_weather" : "白日天气",
+          "day_wind_power" : "白日风力",
+          "day_air_temperature" : "白日气温",
+          "day_wind_direction" : "白日风向",
+          "night_wind_power" : "夜间风力",
+          "sun_begin_end" : "日出日落时分",
+          "day" : "日期",
+          "city_name" : "省市地区"
+        },
+        "data": [
+          {
+            "jiangshui" : "0%",
+            "air_press" : "1019 hPa",
+            "weekday" : 4,
+            "night_wind_direction" : "东北风",
+            "night_air_temperature" : "21",
+            "night_weather" : "阴",
+            "ziwaixian" : "弱",
+            "day_weather" : "多云",
+            "day_wind_power" : "0-3级 <5.4m/s",
+            "day_air_temperature" : "30",
+            "day_wind_direction" : "南风",
+            "night_wind_power" : "0-3级 <5.4m/s",
+            "sun_begin_end" : "05:07|19:44",
+            "day" : "20200702",
+            "city_name" : "河北省/邯郸市"
+          },
+          {
+            "jiangshui" : "10%",
+            "air_press" : "1019 hPa",
+            "weekday" : 5,
+            "night_wind_direction" : "南风",
+            "night_air_temperature" : "22",
+            "night_weather" : "阴",
+            "ziwaixian" : "强",
+            "day_weather" : "多云",
+            "day_wind_power" : "0-3级 <5.4m/s",
+            "day_wind_direction" : "南风",
+            "day_air_temperature" : "31",
+            "night_wind_power" : "0-3级 <5.4m/s",
+            "sun_begin_end" : "05:07|19:44",
+            "day" : "20200703",
+            "city_name" : "河北省/邯郸市"
+          },
+          {
+            "jiangshui" : "82%",
+            "air_press" : "1019 hPa",
+            "weekday" : 6,
+            "night_wind_direction" : "北风",
+            "night_air_temperature" : "23",
+            "night_weather" : "阴",
+            "ziwaixian" : "最弱",
+            "day_weather" : "雷阵雨",
+            "day_wind_power" : "0-3级 <5.4m/s",
+            "day_air_temperature" : "29",
+            "day_wind_direction" : "南风",
+            "night_wind_power" : "0-3级 <5.4m/s",
+            "sun_begin_end" : "05:08|19:44",
+            "day" : "20200704",
+            "city_name" : "河北省/邯郸市"
+          },
+          {
+            "jiangshui" : "14%",
+            "air_press" : "1019 hPa",
+            "weekday" : 7,
+            "night_wind_direction" : "南风",
+            "night_air_temperature" : "23",
+            "night_weather" : "多云",
+            "ziwaixian" : "很强",
+            "day_weather" : "多云",
+            "day_wind_power" : "0-3级 <5.4m/s",
+            "day_wind_direction" : "北风",
+            "day_air_temperature" : "31",
+            "night_wind_power" : "0-3级 <5.4m/s",
+            "sun_begin_end" : "05:08|19:44",
+            "day" : "20200705",
+            "city_name" : "河北省/邯郸市"
+          },
+          {
+            "jiangshui" : "8%",
+            "air_press" : "1019 hPa",
+            "weekday" : 1,
+            "night_wind_direction" : "南风",
+            "night_air_temperature" : "26",
+            "night_weather" : "多云",
+            "ziwaixian" : "很强",
+            "day_weather" : "多云",
+            "day_wind_power" : "3-4级 5.5~7.9m/s",
+            "day_air_temperature" : "34",
+            "day_wind_direction" : "南风",
+            "night_wind_power" : "3-4级 5.5~7.9m/s",
+            "sun_begin_end" : "05:09|19:44",
+            "day" : "20200706",
+            "city_name" : "河北省/邯郸市"
+          },
+          {
+            "jiangshui" : "11%",
+            "air_press" : "978 hPa",
+            "weekday" : 2,
+            "night_wind_direction" : "东北风",
+            "night_air_temperature" : "19",
+            "night_weather" : "多云",
+            "ziwaixian" : "最弱",
+            "day_weather" : "多云",
+            "day_wind_power" : "3-4级 5.5~7.9m/s",
+            "day_air_temperature" : "27",
+            "day_wind_direction" : "东北风",
+            "night_wind_power" : "3-4级 5.5~7.9m/s",
+            "sun_begin_end" : "04:03|19:46",
+            "day" : "20200630",
+            "city_name" : "内蒙古自治区/兴安盟"
           }
         ]
       }

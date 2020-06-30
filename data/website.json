@@ -111,7 +111,7 @@
     "websiteId": 12,
     "name": "考拉海购",
     "description": "考拉海购是阿里旗下以跨境业务为主的综合型电商",
-    "isHot": true,
+    "isHot": false,
     "CategoryId": 3,
     "logoUrl": "/image/website_logo?website_id=12",
     "WebsiteUrl": "/templates?website_id=12"
@@ -127,12 +127,12 @@
   },
   {
     "websiteId": 16,
-    "name": "京东商城16",
-    "description": "京东JD.COM-专业的综合网上购物商城",
-    "isHot": true,
+    "name": "壹药网",
+    "description": "1药网（原1号药网）于2015年11月23日正式更名为“1药网”，隶属于广东壹号大药房医药连锁有限公司，是中国第一批获得国家食品药品监督管理局颁发的《互联网药品交易许可证》的合法网上药店",
+    "isHot": false,
     "CategoryId": 3,
-    "logoUrl": "/image/website_logo?website_id=1",
-    "WebsiteUrl": "/templates?website_id=1"
+    "logoUrl": "/image/website_logo?website_id=16",
+    "WebsiteUrl": "/templates?website_id=16"
   },
   {
     "websiteId": 17,
@@ -244,7 +244,7 @@
   },
   {
     "websiteId": 30,
-    "name": "新浪微博30",
+    "name": "新浪微博",
     "description": "微博是基于用户关系的社交媒体平台，用户可以通过PC、手机等多种移动终端接入，以文字、图片、视频等多媒体形式，实现信息的即时分享、传播互动。",
     "isHot": true,
     "CategoryId": 1,
@@ -253,11 +253,20 @@
   },
   {
     "websiteId": 31,
-    "name": "国家统计局-月度数据指标31",
+    "name": "国家统计局",
     "description": "国家统计局是国务院直属机构，主管全国统计和国民经济核算工作，拟定统计工作法规、统计改革和统计现代化建设规划以及国家统计调查计划，组织领导和监督检查各地区、各部门的统计和国民经济核算工作，监督检查统计法律法规的实施。",
-    "isHot": true,
+    "isHot": false,
     "CategoryId": 7,
     "logoUrl": "/image/website_logo?website_id=31",
     "WebsiteUrl": "/templates?website_id=31"
+  },
+  {
+    "websiteId": 32,
+    "name": "后知气象",
+    "description": "后知气象网可查看历史的气象数据详情(小时数据),同期对比,城市对比数据 历史数据均可以提供下载服务",
+    "isHot": false,
+    "CategoryId": 9,
+    "logoUrl": "/image/website_logo?website_id=32",
+    "WebsiteUrl": "/templates?website_id=32"
   }
 ]
