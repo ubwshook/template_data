@@ -268,5 +268,14 @@
     "CategoryId": 9,
     "logoUrl": "/image/website_logo?website_id=32",
     "WebsiteUrl": "/templates?website_id=32"
+  },
+  {
+    "websiteId": 33,
+    "name": "墨迹天气",
+    "description": "墨迹天气预报app,全球约6.5亿人在使用的天气app,支持199个国家20多万个城市及地区的天气查询,精准定位及时推送,实时监测阴晴雨雪,实时空气质量及空气质量等级预报",
+    "isHot": false,
+    "CategoryId": 9,
+    "logoUrl": "/image/website_logo?website_id=33",
+    "WebsiteUrl": "/templates?website_id=33"
   }
 ]

@@ -2195,5 +2195,130 @@
         ]
       }
     ]
+  },
+  {
+    "templateId": 15,
+    "tabs": [
+      {
+        "tabName": "模板介绍",
+        "contentType": "string",
+        "description": "此模板用于采集墨迹天气数据"
+      },
+      {
+        "tabName": "字段预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "城市",
+            "contentType": "string",
+            "description": "城市名"
+          },
+          {
+            "subTabName": "日期",
+            "contentType": "string",
+            "description": "日期"
+          },
+          {
+            "subTabName": "星期",
+            "contentType": "string",
+            "description": "星期"
+          },
+          {
+            "subTabName": "天气",
+            "contentType": "string",
+            "description": "天气"
+          },
+          {
+            "subTabName": "气温",
+            "contentType": "string",
+            "description": "气温"
+          }
+        ]
+      },
+      {
+        "tabName": "采集参数预览",
+        "contentType": "tabs",
+        "subTabs": [
+          {
+            "subTabName": "城市",
+            "contentType": "string",
+            "description": "城市名"
+          },
+          {
+            "subTabName": "参数样例",
+            "contentType": "table",
+            "headers": {
+              "keyword": "城市"
+            },
+            "data": [
+              {
+                "keyword": "北京"
+              },
+              {
+                "keyword": "上海"
+              },
+              {
+                "keyword": "广州"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tabName": "数据样例",
+        "contentType": "table",
+        "headers": {
+          "city_name" : "城市名",
+          "date" : "日期",
+          "week" : "星期",
+          "weather" : "天气",
+          "temperature" : "气温"
+        },
+        "data": [
+          {
+            "city_name" : "北京市， 北京市， 中国",
+            "date" : "07/09",
+            "week" : "周四",
+            "weather" : "雨转多云",
+            "temperature" : "32°~20°"
+          },
+          {
+            "city_name" : "北京市， 北京市， 中国",
+            "date" : "07/10",
+            "week" : "周五",
+            "weather" : "雨",
+            "temperature" : "33°~20°"
+          },
+          {
+            "city_name" : "北京市， 北京市， 中国",
+            "date" : "07/11",
+            "week" : "周六",
+            "weather" : "雨",
+            "temperature" : "27°~18°"
+          },
+          {
+            "city_name" : "北京市， 北京市， 中国",
+            "date" : "07/12",
+            "week" : "周日",
+            "weather" : "雨",
+            "temperature" : "30°~20°"
+          },
+          {
+            "city_name" : "北京市， 北京市， 中国",
+            "date" : "07/13",
+            "week" : "周一",
+            "weather" : "雨",
+            "temperature" : "34°~22°"
+          },
+          {
+            "city_name" : "北京市， 北京市， 中国",
+            "date" : "07/14",
+            "week" : "周二",
+            "weather" : "雨",
+            "temperature" : "33°~21°"
+          }
+        ]
+      }
+    ]
   }
 ]

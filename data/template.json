@@ -180,5 +180,18 @@
     "isBinary": false,
     "src": "arachnid/template/houzhi_weather/",
     "cmd": "python houzhi_weatherdata_spider.py --para=%s"
+  },
+  {
+    "templateId": 15,
+    "templateName": "后知城市天气数据爬虫",
+    "templateEnName": "moji_weatherdata_spider",
+    "websiteId": 33,
+    "websiteName": "墨迹天气",
+    "categoryId": 9,
+    "categoryName": "实用工具",
+    "isNeedParas": true,
+    "isBinary": false,
+    "src": "arachnid/template/moji_weather/",
+    "cmd": "python moji_weatherdata_spider.py --para=%s"
   }
 ]
