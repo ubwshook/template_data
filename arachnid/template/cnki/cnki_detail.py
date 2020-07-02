@@ -47,13 +47,13 @@ class CnkiDetailSpider(object):
 
     def page_parse(self, html, url_info):
         try:
-            soup = bs4.BeautifulSoup(html.text, 'lxml')
+            soup = bs4.BeautifulSoup(html, 'lxml')
             item = dict()
             item['title'] = soup.find('h2', attrs={'class': "title"}).text
             authors = soup.find('div', attrs={'class': "author"}).find_all('span')
-            item['authors'] = str([author.text for author in authors])
+            item['authors'] = str([author.text for author in authors]).replace("'", "")
             orgns = soup.find('div', attrs={'class': "orgn"}).find_all('span')
-            item['orgns'] = str([orgn.text for orgn in orgns])
+            item['orgns'] = str([orgn.text for orgn in orgns]).replace("'", "")
             item['summary'] = soup.find('span', attrs={'id': "ChDivSummary"}).text
             item['url'] = url_info['url']
             baseinfo = soup.find('div', attrs={'class': "wxBaseinfo"})
@@ -62,7 +62,7 @@ class CnkiDetailSpider(object):
                 # print(p)
                 if p.label and p.label.attrs['id'] == 'catalog_KEYWORD':
                     a_list = p.find_all('a')
-                    item['keyword'] = str([a.text.strip().replace(";", "").replace("。", "") for a in a_list])
+                    item['keyword'] = str([a.text.strip().replace(";", "").replace("。", "") for a in a_list]).replace("'", "")
 
             return [item], None
         except Exception as e:

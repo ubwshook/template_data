@@ -95,10 +95,13 @@ class Crawler:
                                 try_times = try_times + 1
                                 continue
                 except Exception as e:
-                    print(str(e))
+                    print("抓取出现错误：" + str(e))
                     try_times = try_times + 1
                 else:
                     break
+
+            if html is None:
+                continue
 
             if not self.check_html(html):
                 print('超过最大次数 {}'.format(self.crawl_configs['url']))
