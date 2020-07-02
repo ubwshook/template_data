@@ -95,3 +95,15 @@ class CnkiDetailSpider(object):
         loop.run_until_complete(wait_coro)
         loop.run_until_complete(asyncio.sleep(0.25))
         loop.close()
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Transmit spider parameter')
+    parser.add_argument('--para', required=True, help='The parameter col id for the spider.')
+
+    args = parser.parse_args()
+    parameter_id = args.para
+
+    spider = CnkiDetailSpider(parameter_id)
+    spider.start()
+
