@@ -183,7 +183,7 @@
   },
   {
     "templateId": 15,
-    "templateName": "后知城市天气数据爬虫",
+    "templateName": "墨迹天气数据爬虫",
     "templateEnName": "moji_weatherdata_spider",
     "websiteId": 33,
     "websiteName": "墨迹天气",
@@ -193,5 +193,18 @@
     "isBinary": false,
     "src": "arachnid/template/moji_weather/",
     "cmd": "python moji_weatherdata_spider.py --para=%s"
+  }
+  {
+    "templateId": 16,
+    "templateName": "中国知网论文详情",
+    "templateEnName": "cnki_detail",
+    "websiteId": 14,
+    "websiteName": "墨迹天气",
+    "categoryId": 11,
+    "categoryName": "科研教育",
+    "isNeedParas": true,
+    "isBinary": false,
+    "src": "arachnid/template/cnki/",
+    "cmd": "python cnki_detail.py --para=%s"
   }
 ]

@@ -126,6 +126,15 @@
     "WebsiteUrl": "/templates?website_id=13"
   },
   {
+    "websiteId": 14,
+    "name": "中国知网",
+    "description": "知网的概念是国家知识基础设施",
+    "isHot": true,
+    "CategoryId": 11,
+    "logoUrl": "/image/website_logo?website_id=14",
+    "WebsiteUrl": "/templates?website_id=14"
+  },
+  {
     "websiteId": 16,
     "name": "壹药网",
     "description": "1药网（原1号药网）于2015年11月23日正式更名为“1药网”，隶属于广东壹号大药房医药连锁有限公司，是中国第一批获得国家食品药品监督管理局颁发的《互联网药品交易许可证》的合法网上药店",
@@ -133,114 +142,6 @@
     "CategoryId": 3,
     "logoUrl": "/image/website_logo?website_id=16",
     "WebsiteUrl": "/templates?website_id=16"
-  },
-  {
-    "websiteId": 17,
-    "name": "京东商城17",
-    "description": "京东JD.COM-专业的综合网上购物商城",
-    "isHot": true,
-    "CategoryId": 3,
-    "logoUrl": "/image/website_logo?website_id=1",
-    "WebsiteUrl": "/templates?website_id=1"
-  },
-  {
-    "websiteId": 18,
-    "name": "京东商城18",
-    "description": "京东JD.COM-专业的综合网上购物商城",
-    "isHot": true,
-    "CategoryId": 3,
-    "logoUrl": "/image/website_logo?website_id=1",
-    "WebsiteUrl": "/templates?website_id=1"
-  },
-  {
-    "websiteId": 20,
-    "name": "京东商城20",
-    "description": "京东JD.COM-专业的综合网上购物商城",
-    "isHot": true,
-    "CategoryId": 3,
-    "logoUrl": "/image/website_logo?website_id=1",
-    "WebsiteUrl": "/templates?website_id=1"
-  },
-  {
-    "websiteId": 21,
-    "name": "京东商城21",
-    "description": "京东JD.COM-专业的综合网上购物商城",
-    "isHot": true,
-    "CategoryId": 3,
-    "logoUrl": "/image/website_logo?website_id=1",
-    "WebsiteUrl": "/templates?website_id=1"
-  },
-  {
-    "websiteId": 22,
-    "name": "京东商城22",
-    "description": "京东JD.COM-专业的综合网上购物商城",
-    "isHot": true,
-    "CategoryId": 3,
-    "logoUrl": "/image/website_logo?website_id=1",
-    "WebsiteUrl": "/templates?website_id=1"
-  },
-  {
-    "websiteId": 23,
-    "name": "京东商城23",
-    "description": "京东JD.COM-专业的综合网上购物商城",
-    "isHot": true,
-    "CategoryId": 3,
-    "logoUrl": "/image/website_logo?website_id=1",
-    "WebsiteUrl": "/templates?website_id=1"
-  },
-  {
-    "websiteId": 24,
-    "name": "京东商城24",
-    "description": "京东JD.COM-专业的综合网上购物商城",
-    "isHot": true,
-    "CategoryId": 3,
-    "logoUrl": "/image/website_logo?website_id=1",
-    "WebsiteUrl": "/templates?website_id=1"
-  },
-  {
-    "websiteId": 25,
-    "name": "京东商城25",
-    "description": "京东JD.COM-专业的综合网上购物商城",
-    "isHot": true,
-    "CategoryId": 3,
-    "logoUrl": "/image/website_logo?website_id=1",
-    "WebsiteUrl": "/templates?website_id=1"
-  },
-  {
-    "websiteId": 26,
-    "name": "京东商城26",
-    "description": "京东JD.COM-专业的综合网上购物商城",
-    "isHot": true,
-    "CategoryId": 3,
-    "logoUrl": "/image/website_logo?website_id=1",
-    "WebsiteUrl": "/templates?website_id=1"
-  },
-  {
-    "websiteId": 27,
-    "name": "京东商城27",
-    "description": "京东JD.COM-专业的综合网上购物商城",
-    "isHot": true,
-    "CategoryId": 3,
-    "logoUrl": "/image/website_logo?website_id=1",
-    "WebsiteUrl": "/templates?website_id=1"
-  },
-  {
-    "websiteId": 28,
-    "name": "京东商城28",
-    "description": "京东JD.COM-专业的综合网上购物商城",
-    "isHot": true,
-    "CategoryId": 3,
-    "logoUrl": "/image/website_logo?website_id=1",
-    "WebsiteUrl": "/templates?website_id=1"
-  },
-  {
-    "websiteId": 29,
-    "name": "京东商城29",
-    "description": "京东JD.COM-专业的综合网上购物商城",
-    "isHot": true,
-    "CategoryId": 3,
-    "logoUrl": "/image/website_logo?website_id=1",
-    "WebsiteUrl": "/templates?website_id=1"
   },
   {
     "websiteId": 30,

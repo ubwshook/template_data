@@ -8,35 +8,40 @@ import requests
 from lxml import etree
 from retrying import retry
 from urllib.parse import quote
+from crawlab.db import db
+from bson import ObjectId
 from crawlab import save_item
 from crawl import Crawler
 
 
-def read_csv_file():
-    """读取csv文件获取传入参数"""
-    csv_list = []
-    file_name = "keyword.csv"
-    with open(file_name, newline='') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-        for row in spamreader:
-            for line in row:
-                csv_list.append(line)
-    csv_list = csv_list[1:]
-    print(len(csv_list), csv_list)
-    return csv_list
-
-
 class StatsSpider:
-    def __init__(self, spider_id):
+    def __init__(self, para_id):
         self.configs = {
             'max_times': 10,
             'timeout': 5,
         }
         self.coro_num = 3
-        self.spider_id = spider_id
+        # self.spider_id = spider_id
+        self.db = db
+        self.para_col = "parameters"
+        self.para_id = para_id
 
     def make_url_info(self, row):
         return []
+
+    def get_parameter(self):
+        '''
+        mongo读取搜索关键字、城市
+        :return:
+        {'headersList': ['城市'], 'parameterMap': {'城市': ['北京', '上海', '广州', '深圳', '南京', '杭州', '武汉', '重庆', '西安', '天津', '济南', '沈阳', '南昌', '苏州', '成都', '福州', '厦门', '长沙', '郑州', '合肥', '长春', '哈尔滨', '昆明', '青岛', '太原', '银川', '南宁', '贵阳', '海口', '石家庄', '呼和浩特', '乌鲁木齐', '西宁', '兰州', '珠海', '宁波', '大连', '佛山', '东莞']}, 'spiderId': 0, 'templateId': 8, '_id': ObjectId('5efc5814ed02707ecc6d4151')}
+        5efc5814ed02707ecc6d4151
+        '''
+        col = self.db.get_collection(self.para_col)
+        parameter = col.find_one({"_id": ObjectId(self.para_id)})
+        # id_list = parameter["parameterMap"][parameter["headersList"][0]]
+        keyword_list = parameter["parameterMap"][parameter["headersList"][0]]
+        print(keyword_list)
+        return keyword_list
 
     @retry(stop_max_attempt_number=3)
     def city_search(self, city):
@@ -124,7 +129,7 @@ class StatsSpider:
     def run(self):
         print("开始")
         self.int()
-        list_csv = read_csv_file()
+        list_csv = self.get_parameter()
         wether_url_list = []
         for city in list_csv:
             cityid = self.city_search(city)
@@ -148,6 +153,6 @@ if __name__ == '__main__':
     parser.add_argument('--para', required=True, help='The parameter col id for the spider.')
     args = parser.parse_args()
     parameter_id = args.para
-
+    # parameter_id = "5efc5814ed02707ecc6d4151"
     houzhidata = StatsSpider(parameter_id)
     houzhidata.run()
