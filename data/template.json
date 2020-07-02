@@ -193,7 +193,7 @@
     "isBinary": false,
     "src": "arachnid/template/moji_weather/",
     "cmd": "python moji_weatherdata_spider.py --para=%s"
-  }
+  },
   {
     "templateId": 16,
     "templateName": "中国知网论文详情",
