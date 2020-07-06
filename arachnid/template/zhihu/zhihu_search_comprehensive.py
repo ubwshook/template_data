@@ -148,7 +148,7 @@ class ZhSearch:
         :return:
         '''
         print(id,keyword,url)
-        browser = await launch({'devtools': False,'headless': True,'dumpio': True, #'userDataDir': './userdata',
+        browser = await launch({'devtools': False,'headless': False,'dumpio': True, #'userDataDir': './userdata',
                                 'args': [
                                 '--disable-extensions',
                                 '--disable-bundled-ppapi-flash',
@@ -165,13 +165,11 @@ class ZhSearch:
                             }
                         '''
         page = await browser.newPage()
-        await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                                "(KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36")
+        await page.setUserAgent(
+            'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36')
         #width, height = self.screen_size()
         await page.setViewport(viewport={'width': 1366, 'height': 768})
         await page.setJavaScriptEnabled(enabled=True)
-        await page.setUserAgent(
-            'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36')
         #执行js脚本，避免页面检测
         await page.evaluateOnNewDocument(js)
         await page.goto(url, options={'timeout': 60000})

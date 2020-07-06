@@ -1174,28 +1174,33 @@
             "subTabs": [
                 {
                     "subTabName": "关键字",
-                    "contentType": "image",
-                    "image": null
+                    "contentType": "string",
+                    "description": "需要搜索的新闻关键字"
                 },
-              {
-            "subTabName": "参数样例",
-            "contentType": "table",
-            "headers": {
-              "id": "id",
-              "keyword": "关键字"
-            },
-            "data": [
-              { "id": "1",
-                "keyword": "腾讯"
-              },
-              { "id": "2",
-                "keyword": "网易"
-              },
-              { "id": "3",
-                "keyword": "华为"
-              }
-            ]
-          }
+                {
+                  "subTabName": "id",
+                  "contentType": "string",
+                  "description": "关键字的编号"
+                },
+                {
+                  "subTabName": "参数样例",
+                  "contentType": "table",
+                  "headers": {
+                    "id": "id",
+                    "keyword": "关键字"
+                  },
+                  "data": [
+                    { "id": "1",
+                      "keyword": "腾讯"
+                    },
+                    { "id": "2",
+                      "keyword": "网易"
+                    },
+                    { "id": "3",
+                      "keyword": "华为"
+                    }
+                  ]
+                }
             ]
         },
         {
@@ -1295,6 +1300,11 @@
                     "contentType": "string",
                     "description": "知乎搜索关键字"
                 },
+                {
+                  "subTabName": "id",
+                  "contentType": "string",
+                  "description": "关键字编号"
+              },
               {
             "subTabName": "参数样例",
             "contentType": "table",
@@ -1517,6 +1527,11 @@
             "subTabName": "关键字",
             "contentType": "string",
             "description": "药品类型关键字"
+          },
+          {
+            "subTabName": "最大页数",
+            "contentType": "string",
+            "description": "药品采集的最大页数"
           },
           {
             "subTabName": "参数样例",
@@ -1746,7 +1761,7 @@
             "contentType": "table",
             "headers": {
               "keyword": "关键字",
-              "page": "页码"
+              "page": "页数"
             },
             "data": [
               {
@@ -1874,7 +1889,7 @@
             "contentType": "tabs",
             "subTabs": [
                 {
-                    "subTabName": "城市名",
+                    "subTabName": "城市",
                     "contentType": "string",
                     "description": "需要采集数据的城市列表"
                 },
@@ -2415,7 +2430,137 @@
           }
         ]
       }
-      
+    ]
+  },
+  {
+    "templateId": 17,
+    "tabs": [
+        {
+            "tabName": "模板介绍",
+            "contentType": "string",
+            "description": "此模板用于采集豆瓣电影搜索信息"
+        },
+        {
+            "tabName": "字段预览",
+            "contentType": "tabs",
+            "subTabs": [
+                {
+                    "subTabName": "关键字",
+                    "contentType": "string",
+                    "description": "搜索关键字"
+                },
+                {
+                    "subTabName": "名称",
+                    "contentType": "string",
+                    "description": "影视名称"
+                },
+                {
+                    "subTabName": "年份",
+                    "contentType": "string",
+                    "description": "影视上映年份"
+                },
+                {
+                    "subTabName": "链接",
+                    "contentType": "string",
+                    "description": "影视链接"
+                },
+                {
+                    "subTabName": "评分",
+                    "contentType": "string",
+                    "description": "影视评分"
+                },
+                {
+                    "subTabName": "评论数",
+                    "contentType": "string",
+                    "description": "评论人数"
+                },
+                {
+                    "subTabName": "类型",
+                    "contentType": "string",
+                    "description": "影视类型介绍"
+                },
+                {
+                    "subTabName": "演员",
+                    "contentType": "string",
+                    "description": "演员表"
+                }
+            ]
+        },
+        {
+            "tabName": "采集参数预览",
+            "contentType": "tabs",
+            "subTabs": [
+                {
+                    "subTabName": "关键字",
+                    "contentType": "string",
+                    "description": "搜索关键字"
+                },
+              {
+            "subTabName": "参数样例",
+            "contentType": "table",
+            "headers": {
+              "city": "关键字"
+            },
+            "data": [
+              {
+                "city": "成龙"
+              },
+              {
+                "city": "动作"
+              },
+              {
+                "city": "复仇者联盟"
+              }
+            ]
+          }
+            ]
+        },
+        {
+            "tabName": "数据样例",
+            "contentType": "table",
+            "headers": {
+                "keyword": "关键字",
+                "name": "名称",
+                "years": "年份",
+                "link": "链接",
+                "score": "评分",
+                "comment_count": "评论数",
+                "type": "类型",
+                "cast": "演员"
+            },
+            "data": [
+                {
+                    "keyword": "成龙",
+                    "name": "神话",
+                    "years": "2005",
+                    "link": "https://movie.douban.com/subject/1307023/",
+                    "score": "6.7",
+                    "comment_count": "200066",
+                    "type": "中国大陆 / 中国香港 / 动作 / 冒险 / 喜剧 / 剧情 / 奇幻 / 惊天传奇 / 钛雨 / 122分钟",
+                    "cast": "唐季礼 / 成龙 / 金喜善 / 梁家辉 / 玛丽卡·沙拉瓦特 / 孙周 / 邵兵 / 于荣光 / 谭耀文"
+                },
+                {
+                    "keyword": "动作",
+                    "name": "幻影英雄 Last Action Hero",
+                    "years": "1993",
+                    "link": "https://movie.douban.com/subject/1300343/",
+                    "score": "7.6",
+                    "comment_count": "6573",
+                    "type": "美国 / 动作 / 冒险 / 喜剧 / 奇幻 / 最后魔鬼英雄 / 最后的打斗英雄 / 130分钟",
+                    "cast": "约翰·麦克蒂尔南 / 阿诺·施瓦辛格 / F·默里·亚伯拉罕 / 阿特·卡尼 / 查尔斯·丹斯 / 弗兰克·麦克雷 / 汤姆·诺南 / 罗伯特·普罗斯基 / 安东尼·奎恩"
+                },
+                {
+                    "keyword": "复仇者联盟",
+                    "name": "复仇者联盟 The Avengers",
+                    "years": "2012",
+                    "link": "https://movie.douban.com/subject/1866479/",
+                    "score": "8.2",
+                    "comment_count": "547025",
+                    "type": "美国 / 动作 / 科幻 / 奇幻 / 冒险 / 复仇者 / 复联 / 142分钟",
+                    "cast": "乔斯·韦登 / 小罗伯特·唐尼 / 克里斯·埃文斯 / 斯嘉丽·约翰逊 / 克里斯·海姆斯沃斯 / 杰瑞米·雷纳 / 马克·鲁弗洛 / 塞缪尔·杰克逊 / 汤姆·希德勒斯顿"
+                }
+            ]
+        }
     ]
   }
 ]
