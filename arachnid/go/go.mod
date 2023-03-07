@@ -5,7 +5,7 @@ go 1.14
 require (
 	github.com/PuerkitoBio/goquery v1.5.1 // indirect
 	github.com/antchfx/htmlquery v1.2.3 // indirect
-	github.com/antchfx/xmlquery v1.2.4 // indirect
+	github.com/antchfx/xmlquery v1.3.1 // indirect
 	github.com/chromedp/cdproto v0.0.0-20200608134039-8a80cdaf865c
 	github.com/chromedp/chromedp v0.5.3
 	github.com/globalsign/mgo v0.0.0-20181015135952-eeefdecb41b8
@@ -15,7 +15,6 @@ require (
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
 	github.com/saintfish/chardet v0.0.0-20120816061221-3af4cd4741ca // indirect
 	github.com/temoto/robotstxt v1.1.1 // indirect
-	golang.org/x/net v0.0.0-20200602114024-627f9648deb9 // indirect
 	google.golang.org/appengine v1.6.6 // indirect
 	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect
 )
